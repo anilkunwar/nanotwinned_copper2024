@@ -1,0 +1,163 @@
+material_properties:
+  - strength-ductility trade-off
+  - nanotwinning
+  - strength-ductility-conductivity synergy
+  - thermomechanical traits
+  - thermal stability
+  - electrical conductivity
+  - mechanical properties
+  - yield strength
+  - tensile strength
+  - ductility
+  - twin boundary spacing
+  - grain size
+  - grain morphology
+  - dislocation motion
+  - coherent twin boundaries
+  - incoherent twin boundaries
+  - hardness
+  - strain hardening
+  - creep resistance
+  - elastic modulus
+  - hardening exponent
+  - rate sensitivity
+  - activation volume
+  - size-dependent strengthening
+  - stress softening
+  - strain localization
+  - surface energy
+  - oxidation resistance
+  - shear strength
+  - electromagnetic lifespan
+  - microhardness
+fabrication_methods:
+  - electrodeposition
+  - direct current electrodeposition
+  - pulsed electrodeposition
+  - magnetron sputtering
+  - high-temperature high-pressure solid-phase quenching
+  - amorphous-crystalline transformation
+  - severe plastic deformation
+  - cathodic current density
+  - pulse on/off time
+  - electrolyte temperature
+  - stirring speed
+  - organic additives
+  - gelatin
+  - thiol-based additives
+  - sulfuric acid concentration
+  - chemical mechanical planarization
+  - electropolishing
+  - plasma treatment
+  - copper sulfate solution
+  - hydrochloric acid
+  - 2-mercapto-5-benzimidazole sulfonic acid
+  - thiourea
+  - iodide ions
+  - sodium 2-mercaptoethyl sulfonate
+  - JGB additive
+  - high-inhibition additives
+  - additive A
+  - additive B
+  - MPS additive
+  - gold layer deposition
+  - non-conductive paste
+mechanistic_models:
+  - molecular dynamics
+  - atomistic models
+  - dislocation-twin boundary interactions
+  - twin boundary migration
+  - slip transfer
+  - computational models
+  - multiscale modeling
+  - stacking faults
+  - embedded atom model
+  - first-principles calculations
+  - Johnson-Mehl-Avrami-Kolmogorov theory
+  - modified embedded atom method
+  - continuum mechanics
+  - phase field method
+  - crystal plasticity finite element method
+  - Cosserat theory
+  - mechanism-based strain gradient plasticity
+  - Johnson-Cook failure model
+  - density functional theory
+  - Thompson tetrahedron
+  - concentration gradient control
+  - long-range order parameters
+  - equivalent shear strain
+  - critical resolved shear stress
+  - characteristic slip rate
+  - rate-sensitivity parameter
+  - von Mises stress
+  - equivalent strain
+  - misorientation
+  - Burgers vectors
+  - Shockley partial dislocations
+  - stair-rod dislocations
+  - twinning partial slips
+technological_applications:
+  - electronic packaging
+  - microelectronic interconnects
+  - lithium-ion battery anodes
+  - redistribution layer
+  - under bump metallization
+  - through-silicon vias
+  - 3D integrated circuits
+  - low-temperature bonding
+  - wafer-level packaging
+  - high-speed signal transmission
+  - superconducting magnet technology
+  - power transmission systems
+  - microelectromechanical systems
+  - Cu-Cu direct bonding
+  - thermocompression bonding
+  - metal diffusion bonding
+  - hybrid bonding
+  - high-density interconnect
+  - fan-out wafer-level packaging
+  - high bandwidth memory
+  - solder joint reliability
+  - electromagnetic testing
+material_characteristics:
+  - nanotwinned copper
+  - twin boundaries
+  - coherent twin boundaries
+  - incoherent twin boundaries
+  - grain boundaries
+  - face-centered cubic structure
+  - stacking faults
+  - microstructure
+  - columnar grains
+  - equiaxed grains
+  - transition layer
+  - nanotwin spacing
+  - crystal orientation
+  - (111) orientation
+  - (200) orientation
+  - (110) orientation
+  - (100) orientation
+  - twin thickness
+  - Kirkendall voids
+  - intermetallic compounds
+  - Cu6Sn5 grains
+  - Cu3Sn grains
+  - (0001) orientation
+  - (2113) orientation
+  - (11̄20) orientation
+  - surface diffusion
+  - recrystallization
+  - anisotropic grain growth
+  - bonding interface
+  - oxide layer
+  - surface roughness
+  - vacancy sinks
+  - lithium deposition
+  - solid electrolyte interface
+  - underpotential deposition
+  - Cu2O formation
+  - CuO formation
+  - hexagonal helical dislocation
+  - gradient nanotwinned structure
+  - homogeneous nanotwinned structure
+
