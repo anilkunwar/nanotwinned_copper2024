@@ -10,6 +10,13 @@ import matplotlib.cm as cm
 import sqlite3
 import logging
 
+# Define the directory containing the database (same as script directory)
+DB_DIR = os.path.dirname(__file__)
+DB_FILE = os.path.join(DB_DIR, "nanotwin_knowledge.db")
+# If using a subdirectory like pinn_solutions, uncomment below instead:
+# DB_DIR = os.path.join(os.path.dirname(__file__), "pinn_solutions")
+# DB_FILE = os.path.join(DB_DIR, "nanotwin_knowledge.db")
+
 # Initialize logging
 logging.basicConfig(filename='nanotwin_ner.log', level=logging.ERROR)
 
@@ -67,7 +74,7 @@ valid_ranges = {
     "ELECTROLYTE_CONC": (0.01, 5, "mol/L"),
     "PH": (0, 14, ""),
     "TEMPERATURE": (0, 100, "°C"),  # Broader range for flexibility
-    "NANOTWIN_SPACING": (1, 90, "nm"),  # Broader range for flexibility
+    "NANOTWIN_SPACING": (1, 90, "nm"),  # As specified in your latest code
     "GRAIN_SIZE": (0.2, 50, "µm"),  # Standardized to µm
     "ADDITIVE_CONC": (0.001, 10, "g/L"),
     "DEPOSITION_TIME": (1, 1440, "min")
@@ -188,6 +195,10 @@ def validate_metadata_db(db_file):
 
 # Process PDFs for NER using SQLite database
 def process_pdfs_from_db(db_file):
+    # Resolve relative path to absolute path
+    if not os.path.isabs(db_file):
+        db_file = os.path.join(DB_DIR, db_file)
+    
     if not os.path.exists(db_file):
         st.error(f"Database file {db_file} not found. Ensure it exists and contains metadata from a prior arXiv query.")
         return None
@@ -278,7 +289,7 @@ def process_pdfs_from_db(db_file):
 st.sidebar.header("NER Analysis Parameters")
 st.sidebar.markdown("Configure the analysis to extract parameters from the SQLite database.")
 
-db_file_input = st.text_input("SQLite Database File", value="nanotwin_knowledge.db", key="ner_db_file")
+db_file_input = st.text_input("SQLite Database File", value=DB_FILE, key="ner_db_file")
 entity_types = st.multiselect(
     "Parameter Types to Display",
     ["MATERIAL", "CURRENT_DENSITY", "VOLTAGE", "ELECTROLYTE_CONC", "PH", "TEMPERATURE", "NANOTWIN_SPACING", "GRAIN_SIZE", "ADDITIVE_CONC", "DEPOSITION_TIME"],
