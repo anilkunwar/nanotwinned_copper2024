@@ -6,6 +6,9 @@ import matplotlib.cm as cm
 import sqlite3
 import numpy as np
 import logging
+import io
+import tempfile
+import time
 
 # Define the directory containing the database (same as script directory)
 DB_DIR = os.path.dirname(__file__)
@@ -21,14 +24,14 @@ logging.basicConfig(filename='nanotwin_ner.log', level=logging.ERROR)
 st.set_page_config(page_title="Nanotwin NER Analysis Tool", layout="wide")
 st.title("Nanotwin Electrodeposited FCC Copper NER Analysis Tool")
 st.markdown("""
-This tool analyzes electrodeposition parameters (e.g., current density, nanotwin spacing, grain size) stored in a preexisting SQLite database (`nanotwin_knowledge.db`). The database should contain metadata and pre-extracted parameters from a prior arXiv query on nanotwinned copper. Results are visualized and exportable as CSV or JSON for further analysis or cloud-based studies.
+This tool analyzes electrodeposition parameters (e.g., current density, nanotwin spacing, grain size) stored in a SQLite database (`nanotwin_knowledge.db` or an uploaded `.db` file). The database should contain metadata and pre-extracted parameters from a prior arXiv query on nanotwinned copper. Results are visualized and exportable as CSV or JSON for further analysis or cloud-based studies.
 """)
 
 # Dependency check
 st.sidebar.header("Setup and Dependencies")
 st.sidebar.markdown("""
 **Required Dependencies**:
-- `pandas`, `streamlit`, `matplotlib`, `sqlite3`, `numpy`
+- `pandas`, `streamlit`, `matplotlib`, `numpy`, `sqlite3`, `io`, `tempfile`
 - Install with: `pip install pandas streamlit matplotlib numpy`
 """)
 
@@ -68,7 +71,7 @@ def validate_db(db_file):
 
 # Process parameters from database
 def process_params_from_db(db_file):
-    # Resolve relative path to absolute path
+    # Resolve relative path to absolute path if not already absolute
     if not os.path.isabs(db_file):
         db_file = os.path.join(DB_DIR, db_file)
     
@@ -114,7 +117,7 @@ def process_params_from_db(db_file):
         logging.error(f"Database processing failed: {str(e)}")
         return None
 
-# Save histogram data to CSV
+# Save histogram data to CSV (in-memory)
 def save_histogram_to_csv(param_type, values, unit, bins=10):
     try:
         # Compute histogram
@@ -128,19 +131,21 @@ def save_histogram_to_csv(param_type, values, unit, bins=10):
         # Add parameter type and unit as metadata
         histogram_data['parameter_type'] = param_type
         histogram_data['unit'] = unit if unit else "None"
-        # Save to CSV
-        csv_filename = f"histogram_{param_type.lower()}.csv"
-        histogram_data.to_csv(csv_filename, index=False)
-        return csv_filename
+        # Save to in-memory CSV
+        csv_buffer = io.StringIO()
+        histogram_data.to_csv(csv_buffer, index=False)
+        return csv_buffer.getvalue(), f"histogram_{param_type.lower()}.csv"
     except Exception as e:
         logging.error(f"Failed to save histogram CSV for {param_type}: {str(e)}")
-        return None
+        return None, None
 
 # Sidebar for NER inputs
 st.sidebar.header("NER Analysis Parameters")
 st.sidebar.markdown("Configure the analysis to extract parameters from the SQLite database.")
 
-db_file_input = st.text_input("SQLite Database File", value=DB_FILE, key="ner_db_file")
+# File uploader for .db files
+uploaded_db = st.sidebar.file_uploader("Upload SQLite Database (.db)", type=["db", "sqlite", "sqlite3"], key="db_uploader")
+db_file_input = st.sidebar.text_input("Or Specify SQLite Database Path", value=DB_FILE, key="ner_db_file")
 entity_types = st.multiselect(
     "Parameter Types to Display",
     ["MATERIAL", "CURRENT_DENSITY", "VOLTAGE", "ELECTROLYTE_CONC", "PH", "TEMPERATURE", "NANOTWIN_SPACING", "GRAIN_SIZE", "ADDITIVE_CONC", "DEPOSITION_TIME"],
@@ -148,90 +153,134 @@ entity_types = st.multiselect(
     help="Select parameter types to filter results."
 )
 sort_by = st.selectbox("Sort By", ["entity_label", "value"], help="Sort by parameter type or value.")
-analyze_button = st.button("Run NER Analysis")
+analyze_button = st.sidebar.button("Run NER Analysis")
 
 if analyze_button:
-    if not db_file_input:
-        st.error("Please specify the SQLite database file.")
+    if not uploaded_db and not db_file_input:
+        st.error("Please upload a SQLite database file or specify a database path.")
     else:
-        with st.spinner("Processing parameters from database..."):
-            df = process_params_from_db(db_file_input)
-        
-        if df is None or df.empty:
-            st.warning("No parameters extracted. Ensure the database contains parameters and relevant papers from a prior arXiv query.")
+        # Handle uploaded database
+        db_path = None
+        temp_file = None
+        if uploaded_db:
+            try:
+                # Save uploaded file to temporary location
+                with tempfile.NamedTemporaryFile(delete=False, suffix=".db") as temp_file:
+                    temp_file.write(uploaded_db.read())
+                    db_path = temp_file.name
+                st.info(f"Uploaded database saved temporarily at: {db_path}")
+            except Exception as e:
+                st.error(f"Failed to process uploaded database: {str(e)}")
+                logging.error(f"Uploaded database processing failed: {str(e)}")
+                db_path = None
         else:
-            st.success(f"Retrieved **{len(df)}** entities from **{len(df['paper_id'].unique())}** papers!")
+            db_path = db_file_input
+
+        if db_path:
+            with st.spinner("Processing parameters from database..."):
+                df = process_params_from_db(db_path)
             
-            if entity_types:
-                df = df[df["entity_label"].isin(entity_types)]
-            
-            if sort_by == "entity_label":
-                df = df.sort_values(["entity_label", "value"])
+            # Clean up temporary file
+            if temp_file and os.path.exists(temp_file.name):
+                try:
+                    os.unlink(temp_file.name)
+                    st.info("Temporary database file cleaned up.")
+                except Exception as e:
+                    logging.error(f"Failed to clean up temporary file {temp_file.name}: {str(e)}")
+
+            if df is None or df.empty:
+                st.warning("No parameters extracted. Ensure the database contains parameters and relevant papers from a prior arXiv query.")
             else:
-                df = df.sort_values(["value", "entity_label"], na_position="last")
-            
-            st.subheader("Extracted Parameters")
-            st.dataframe(
-                df[["paper_id", "title", "year", "entity_text", "entity_label", "value", "unit", "outcome", "context"]],
-                use_container_width=True,
-                column_config={
-                    "context": st.column_config.TextColumn("Context", help="Surrounding text for the parameter."),
-                    "value": st.column_config.NumberColumn("Value", help="Numerical value of the parameter."),
-                    "outcome": st.column_config.TextColumn("Outcome", help="Related outcome (e.g., nanotwin density).")
-                }
-            )
-            
-            csv = df.to_csv(index=False)
-            st.download_button(
-                "Download Nanotwin Parameters CSV",
-                csv,
-                "nanotwin_copper_params.csv",
-                "text/csv"
-            )
-            
-            json_data = df.to_json("nanotwin_copper_params.json", orient="records", lines=True)
-            with open("nanotwin_copper_params.json", "rb") as f:
-                st.download_button(
-                    "Download Nanotwin Parameters JSON",
-                    f,
-                    "nanotwin_copper_params.json",
-                    "application/json"
+                st.success(f"Retrieved **{len(df)}** entities from **{len(df['paper_id'].unique())}** papers!")
+                
+                if entity_types:
+                    df = df[df["entity_label"].isin(entity_types)]
+                
+                if sort_by == "entity_label":
+                    df = df.sort_values(["entity_label", "value"])
+                else:
+                    df = df.sort_values(["value", "entity_label"], na_position="last")
+                
+                st.subheader("Extracted Parameters")
+                st.dataframe(
+                    df[["paper_id", "title", "year", "entity_text", "entity_label", "value", "unit", "outcome", "context"]],
+                    use_container_width=True,
+                    column_config={
+                        "context": st.column_config.TextColumn("Context", help="Surrounding text for the parameter."),
+                        "value": st.column_config.NumberColumn("Value", help="Numerical value of the parameter."),
+                        "outcome": st.column_config.TextColumn("Outcome", help="Related outcome (e.g., nanotwin density).")
+                    }
                 )
-            
-            st.subheader("Parameter Distribution Analysis")
-            for param_type in entity_types:
-                if param_type in param_types:
-                    param_df = df[df["entity_label"] == param_type]
-                    if not param_df.empty:
-                        values = param_df["value"].dropna()
-                        if not values.empty:
-                            fig, ax = plt.subplots()
-                            ax.hist(values, bins=10, edgecolor="black", color=param_colors[param_type])
-                            unit = param_df["unit"].iloc[0] if not param_df["unit"].empty else ""
-                            ax.set_xlabel(f"{param_type} ({unit})")
-                            ax.set_ylabel("Count")
-                            ax.set_title(f"Distribution of {param_type}")
-                            st.pyplot(fig)
-                            
-                            # Save histogram data to CSV and provide download button
-                            csv_filename = save_histogram_to_csv(param_type, values, unit)
-                            if csv_filename:
-                                with open(csv_filename, "rb") as f:
-                                    st.download_button(
-                                        label=f"Download {param_type} Histogram CSV",
-                                        data=f,
-                                        file_name=csv_filename,
-                                        mime="text/csv",
-                                        key=f"histogram_download_{param_type.lower()}"
-                                    )
-            
-            st.write(f"**Summary**: {len(df)} parameters retrieved, including {len(df[df['entity_label'] == 'CURRENT_DENSITY'])} current density, {len(df[df['entity_label'] == 'ELECTROLYTE_CONC'])} electrolyte concentration, {len(df[df['entity_label'] == 'NANOTWIN_SPACING'])} nanotwin spacing, and {len(df[df['entity_label'] == 'ADDITIVE_CONC'])} additive concentration parameters.")
-            st.markdown("""
-            **Next Steps**:
-            - Filter by parameter types to focus on specific settings.
-            - Review outcomes to link parameters to properties.
-            - Use CSV/JSON for further analysis or cloud studies.
-            """)
+                
+                # Main parameters CSV download (in-memory)
+                try:
+                    csv_buffer = io.StringIO()
+                    df.to_csv(csv_buffer, index=False)
+                    csv_data = csv_buffer.getvalue().encode('utf-8')
+                    st.download_button(
+                        "Download Nanotwin Parameters CSV",
+                        csv_data,
+                        "nanotwin_copper_params.csv",
+                        "text/csv",
+                        key=f"main_csv_download_{time.time()}"
+                    )
+                except Exception as e:
+                    st.error(f"Failed to generate main CSV download: {str(e)}")
+                    logging.error(f"Main CSV download failed: {str(e)}")
+                
+                # Main parameters JSON download (in-memory)
+                try:
+                    json_buffer = io.StringIO()
+                    df.to_json(json_buffer, orient="records", lines=True)
+                    json_data = json_buffer.getvalue().encode('utf-8')
+                    st.download_button(
+                        "Download Nanotwin Parameters JSON",
+                        json_data,
+                        "nanotwin_copper_params.json",
+                        "application/json",
+                        key=f"main_json_download_{time.time()}"
+                    )
+                except Exception as e:
+                    st.error(f"Failed to generate main JSON download: {str(e)}")
+                    logging.error(f"Main JSON download failed: {str(e)}")
+                
+                st.subheader("Parameter Distribution Analysis")
+                for param_type in entity_types:
+                    if param_type in param_types:
+                        param_df = df[df["entity_label"] == param_type]
+                        if not param_df.empty:
+                            values = param_df["value"].dropna()
+                            if not values.empty:
+                                fig, ax = plt.subplots()
+                                ax.hist(values, bins=10, edgecolor="black", color=param_colors[param_type])
+                                unit = param_df["unit"].iloc[0] if not param_df["unit"].empty else ""
+                                ax.set_xlabel(f"{param_type} ({unit})")
+                                ax.set_ylabel("Count")
+                                ax.set_title(f"Distribution of {param_type}")
+                                st.pyplot(fig)
+                                
+                                # Histogram CSV download (in-memory)
+                                try:
+                                    csv_data, csv_filename = save_histogram_to_csv(param_type, values, unit)
+                                    if csv_data:
+                                        st.download_button(
+                                            label=f"Download {param_type} Histogram CSV",
+                                            data=csv_data.encode('utf-8'),
+                                            file_name=csv_filename,
+                                            mime="text/csv",
+                                            key=f"histogram_download_{param_type.lower()}_{time.time()}"
+                                        )
+                                except Exception as e:
+                                    st.error(f"Failed to generate histogram CSV for {param_type}: {str(e)}")
+                                    logging.error(f"Histogram CSV download failed for {param_type}: {str(e)}")
+                
+                st.write(f"**Summary**: {len(df)} parameters retrieved, including {len(df[df['entity_label'] == 'CURRENT_DENSITY'])} current density, {len(df[df['entity_label'] == 'ELECTROLYTE_CONC'])} electrolyte concentration, {len(df[df['entity_label'] == 'NANOTWIN_SPACING'])} nanotwin spacing, and {len(df[df['entity_label'] == 'ADDITIVE_CONC'])} additive concentration parameters.")
+                st.markdown("""
+                **Next Steps**:
+                - Filter by parameter types to focus on specific settings.
+                - Review outcomes to link parameters to properties.
+                - Use CSV/JSON for further analysis or cloud studies.
+                """)
 
 # Footer
 st.markdown("---")
