@@ -1,0 +1,812 @@
+id,title,year,categories,abstract,pdf_url,download_status,matched_terms,match_score,pdf_path
+2505.04198v1,A Predictive Theory of Electrochemical Ostwald Ripening for Electrodeposited Lithium Metal,2025,"cond-mat.mtrl-sci, cond-mat.soft, physics.chem-ph","in this work, we present a theoretical framework that describes the evolution
+of lithium nuclei under the competing effects of electroplating and surface
+energy-driven redistribution (electrochemical ostwald ripening). our model
+introduces a formulation that accounts for solid electrolyte interphase (sei)
+resistance, electrolyte conductivity, and electrode wettability, capturing the
+transition from sei to electrolyte-limited growth regimes. we identify
+asymptotic behaviors for high and low current densities, quantify the
+conditions under which ripening dominates, and derive analytical expressions
+for nucleus size, density, and surface coverage. model predictions show
+excellent agreement with experimental data across multiple datasets. the
+results reveal how sei and electrolyte conductivity, current density and
+metal-electrode contact angle govern deposition morphology and coulombic
+efficiency. based on these insights, we outline experimentally accessible
+guidelines to improve battery efficiency and cycling stability - offering a
+simple yet predictive approach for optimizing metal electrodeposition processes
+in battery systems and beyond.",http://arxiv.org/pdf/2505.04198v1,Downloaded (2621.19 KB),"battery, lithium, cu, deposition, electrodeposition, electroplating",75,pdfs/2505.04198v1.pdf
+2408.00660v1,Droplet-confined electroplating for nanoscale additive manufacturing: current control of the initial stages of the growth of copper nanowires,2024,"cond-mat.mtrl-sci, cond-mat.mes-hall","droplet-confined electrodeposition enables a precise deposition of three
+dimensional, nanoscopic and high purity metal structures. it aspires to
+fabricate intricate microelectronic devices, metamaterials, plasmonic
+structures and functionalized surfaces. yet, a major handicap of
+droplet-confined electrodeposition is the current lack of control over the
+process, which is owed to its dynamic nature and the nanoscopic size of the
+involved droplets. the deposition current offers itself as an obvious and
+real-time window into the deposition. therefore, the current during
+droplet-confined deposition is analysed. nucleation and growth dynamics are
+evaluated systematically. our results indicate different deposition regimes and
+link current to both volume and morphology of deposited copper. this allows for
+optimized electroplating strategies and to calibrate the slicing algorithms
+necessary for a controlled deposition of 3d structures. the potential of
+selecting appropriate solvents further readies this novel technique for the
+reliable deposition of functional structures with submicron resolution.",http://arxiv.org/pdf/2408.00660v1,Downloaded (46022.45 KB),"cu, deposition, electrodeposition, electroplating, copper",62,pdfs/2408.00660v1.pdf
+2306.09522v1,Pressure-Induced Detour of Li$^+$ Transport during Large-Scale Electroplating of Lithium in High-Energy Lithium Metal Pouch Cells,2023,"physics.chem-ph, cond-mat.mtrl-sci","externally applied pressure impacts the performance of batteries particularly
+in those undergoing large volume changes, such as lithium metal batteries. in
+particular, the li$^+$ electroplating process in large format pouch cells
+occurs at a larger dimension compared to those in smaller lab-scale cells. a
+fundamental linkage between external pressure and large format electroplating
+of li$^+$ remains missing but yet critically needed to understand the
+electrochemical behavior of li$^+$ in practical batteries. herein, this work
+utilizes 350 wh/kg lithium metal pouch cell as a model system to study the
+electroplating of li$^+$ ions and the impact of external pressure. the
+vertically applied uniaxial pressure on the batteries using liquid electrolyte
+profoundly affects the electroplating process of li$^+$ which is well reflected
+by the self-generated pressures in the cell and can be correlated to battery
+cycling stability. taking advantage of both constant gap and pressure
+application, all li metal pouch cells demonstrated minimum swelling of 6-8%
+after 300 cycles, comparable to that of state-of-the-art li-ion batteries.
+along the horizontal directions, the pressure distributed across the surface of
+li metal pouch cell reveals a unique phenomenon of li$^+$ migration during the
+electroplating (charge) process driven by an uneven distribution of external
+pressure across the large electrode area, leading to a preferred li plating in
+the center area of li metal anode. this work addresses a longstanding question
+and provides new fundamental insights on large format electrochemical plating
+of li which will inspire more innovations and lead to homogeneous deposition of
+li to advance rechargeable lithium metal battery technology.",http://arxiv.org/pdf/2306.09522v1,Downloaded (1362.19 KB),"battery, lithium, cu, deposition, electroplating",62,pdfs/2306.09522v1.pdf
+1404.6177v1,Stable Lithium Electrodeposition in Liquid and Nanoporous Solid Electrolytes,2014,cond-mat.mtrl-sci,"rechargeable lithium, sodium, and aluminum metal-based batteries are among
+the most versatile platform for high-energy, cost effective electrochemical
+energy storage. non-uniform metal deposition and dendrite formation on the
+negative electrode during repeated cycles of charge and discharge are major
+hurdles to commercialization of energy storage devices based on each of these
+chemistries. a long held view is that unstable electrodeposition is a
+consequence of inherent characteristics of these metals and their inability to
+form uniform electrodeposits on surfaces with inevitable defects. we report on
+electrodeposition of lithium in simple liquid electrolytes and in nanoporous
+solids infused with liquid electrolytes. we find that simple liquid
+electrolytes reinforced with halogenated salt blends exhibit stable long-term
+cycling at room temperature, often with no signs of deposition instabilities
+over hundreds of cycles of charge and discharge and thousands of operating
+hours. we rationalize these observations with the help of surface energy data
+for the electrolyte/lithium interface and impedance analysis of the interface
+during different stages of cell operation. our findings provide support for an
+important recent theoretical prediction that the surface mobility of lithium is
+significantly enhanced in the presence of lithium halide salts.",http://arxiv.org/pdf/1404.6177v1,Downloaded (4361.39 KB),"lithium, deposition, electrodeposition",38,pdfs/1404.6177v1.pdf
+2307.06475v2,in situ Monitoring of Lithium Electrodeposition using Transient Grating Spectroscopy,2023,physics.app-ph,"the mechanisms of lithium electrodeposition, which overwhelmingly affect
+lithium metal battery performance and safety, remain insufficiently understood
+due to its electrochemical complexity. novel, non-destructive and in situ
+techniques to probe electrochemical interfaces during lithium electrodeposition
+are highly desirable. in this work, we demonstrate the capability of transient
+grating spectroscopy to monitor lithium electrodeposition at the micrometer
+scale by generating and detecting surface acoustic waves that sensitively
+interact with the deposited lithium. specifically, we show that the evolution
+of the frequency, velocity and damping rate of the surface acoustic waves
+strongly correlate with the lithium nucleation and growth process. our work
+illustrates the sensitivity of high-frequency surface acoustic waves to
+micrometer scale changes in electrochemical cells and establishes transient
+grating spectroscopy as a versatile platform for future in situ investigation
+of electrochemical inte",http://arxiv.org/pdf/2307.06475v2,Downloaded (5032.07 KB),"battery, lithium, deposition, electrodeposition",50,pdfs/2307.06475v2.pdf
+2001.01236v1,Strain gradient drives lithium dendrite growth from the atomic-scale simulations,2020,cond-mat.mtrl-sci,"dendrite formation is a major obstacle, such as capacity loss and short
+circuit, to the next-generation high-energy-density lithium (li) metal
+batteries. the development of successful li dendrite mitigation strategies is
+impeded by an insufficient understanding of li dendrite growth mechanisms.
+li-plating-induced internal stress in li metal and its effect on dendrite
+growth have been studied in previous models and experiments, while the
+underlying microcosmic mechanism is elusive. here, we analyze the role of
+plating-induced stress in dendrite formation through first-principles
+calculations and ab initio molecular dynamics simulations. we show that the
+deposited li forms a stable atomic nanofilm structure on copper (cu) substrate.
+it is found that the adsorption energy of li atoms increases from the li-cu
+interface to deposited li surface, leading to more aggregated li atoms at the
+interface. compared to the pristine li metal, the deposited li in the early
+stage becomes compacted and suffers in-plane compressive stress. interestingly,
+we find that there is a giant strain gradient distribution from the li-cu
+interface to deposited li surface, which makes the deposited atoms adjacent to
+the cu surface tend to press upwards with perturbation, causing the dendrite
+growth. this understanding provides an insight to the atomic-scale origin of li
+dendrite growth and may be useful for suppressing the li dendrite in the
+li-metal-based rechargeable batteries.",http://arxiv.org/pdf/2001.01236v1,Downloaded (1518.53 KB),"lithium, cu, copper",38,pdfs/2001.01236v1.pdf
+2302.10232v1,Moss-like growth of metal electrodes: On the role of competing faradaic reactions and fast-charging,2023,cond-mat.mtrl-sci,"uncontrolled crystal growth during electroreduction of reactive metals in
+liquid electrolytes produces porous, low-density, mossy metal deposits that
+grow primarily along the surface normal vector to a planar electrode substrate.
+the moss-like deposits are fragile and cause premature failure of batteries by
+chemical, physical, and mechanical pathways. here we use electroanalytical
+rotating-disk electrode (rde) studies in a three-electrode electrochemical cell
+to elucidate the fundamental origin of moss-like growth of metals. we report
+that competing faradaic reactions occurring on the electrode surface is the
+source of the phenomenon. on this basis, we conclude that a moss-like growth
+regime can be accessed during electrodeposition of any metal by subtle shifts
+in electrolyte chemistry and deposition rate. specifically, for zn, a metal
+that conventionally is not known to form moss-like electrodeposits, obvious
+moss-like deposition patterns emerge at low-current densities in
+strongly-alkaline electrolytes that undergo electroreduction to form an
+interphase on the electrodeposited zn. conversely, we find that under
+conditions where the rate of metal electroplating is large relative to that of
+other competing faradaic reactions, it is possible to eliminate the mossy-like
+growth regime for zn. taken together, our findings open up a new approach for
+simultaneously achieving favorable metal deposition morphology and fast
+charging in next-generation batteries using metal anodes.",http://arxiv.org/pdf/2302.10232v1,Downloaded (3532.15 KB),"cu, deposition, electrodeposition, electroplating",50,pdfs/2302.10232v1.pdf
+2502.05809v2,Achieving electrode smoothing by controlling the nucleation phase of metal deposition through polymer-substrate binding,2025,cond-mat.mtrl-sci,"polymer additives [like polyethylene oxide (peo)] are widely used for smooth
+electrode deposition in aqueous zinc and a number of other battery systems
+currently investigated for energy storage applications. however, the precise
+mechanism by which they regulate morphology and suppress dendrite formation
+remains unclear. in this study, we address this knowledge gap by using in-situ
+electrochemical atomic force microscopy (ec-afm) to directly observe the
+interfacial evolution during zn electrodeposition and polymer adsorption on
+copper (cu) substrates in the presence of varying concentrations of znso4 and
+peo. contrary to previous literature assumptions which emphasize the binding to
+the growing zn crystal surfaces or zn2+ ions, our results demonstrate that peo
+smooths zn films by promoting nucleation of (002)-oriented zn platelets through
+interactions with the cu substrate. density functional theory (dft) simulations
+support this finding by showing that peo adsorption on cu modifies the
+interfacial energy of zn/cu/electrolyte interfaces, favoring the stabilization
+of zn (002) on the cu substrate, as well as confines zn electrodeposition to a
+narrow near-surface region. these findings elucidate a novel design principle
+for electrode smoothing, emphasizing the importance of substrate selection
+paired with polymer additives that exhibit an attractive interaction with the
+substrate, but minimal interaction with growing crystals, offering a
+mechanistic perspective for improved battery performance.",http://arxiv.org/pdf/2502.05809v2,Downloaded (28610.60 KB),"battery, cu, deposition, electrodeposition, copper",62,pdfs/2502.05809v2.pdf
+2309.12824v1,"Direct in- and out-of-plane writing of metals on insulators by electron-beam-enabled, confined electrodeposition with submicrometer feature size",2023,"physics.app-ph, cond-mat.mtrl-sci","additive microfabrication processes based on localized electroplating enable
+the one-step deposition of micro-scale metal structures with outstanding
+performance, e.g. high electrical conductivity and mechanical strength. they
+are therefore evaluated as an exciting and enabling addition to the existing
+repertoire of microfabrication technologies. yet, electrochemical processes are
+generally restricted to conductive or semiconductive substrates, precluding
+their application in the manufacturing of functional electric devices where
+direct deposition onto insulators is often required. here, we demonstrate the
+direct, localized electrodeposition of copper on a variety of insulating
+substrates, namely al2o3, glass and flexible polyethylene, enabled by
+electron-beam-induced reduction in a highly confined liquid electrolyte
+reservoir. the nanometer-size of the electrolyte reservoir, fed by
+electrohydrodynamic ejection, enables a minimal feature size on the order of
+200 nm. the fact that the transient reservoir is established and stabilized by
+electrohydrodynamic ejection rather than specialized liquid cells could offer
+greater flexibility towards deposition on arbitrary substrate geometries and
+materials. installed in a low-vacuum scanning electron microscope, the setup
+further allows for operando, nanoscale observation and analysis of the
+manufacturing process.",http://arxiv.org/pdf/2309.12824v1,Downloaded (18599.29 KB),"cu, deposition, electrodeposition, electroplating, copper",62,pdfs/2309.12824v1.pdf
+1611.00969v1,Structural and electrical properties of electrodeposited single junction of cuprous (I) oxide copper,2016,cond-mat.mtrl-sci,"cuprous (i) oxide (cu_{2}o) based solar cells were fabricated with the use of
+the electrodeposition technique at nanometre scale, and the structural,
+morphological and electrical properties were investigated. the cu_{2}o layers
+were electrodeposited on crystalline and polycrystalline copper substrates. to
+complete the cu_{2}o/cu(100) and cu_{2}o/cu interfaces as the solar cells the
+top electrodes of silver paste were painted on the rear of cu_{2}o. the
+theoretical analysis of the current voltage curve was provided to determine the
+values of electrical parameters of the most efficient solar cell of
+ag/cu_{2}o/cu(100) and clearly indicate presence of two schottky barriers at
+interfaces.",http://arxiv.org/pdf/1611.00969v1,Downloaded (550.72 KB),"cu, deposition, electrodeposition, copper",50,pdfs/1611.00969v1.pdf
+1907.04441v2,Design rules for liquid crystalline electrolytes for enabling dendrite-free lithium metal batteries,2019,"physics.app-ph, physics.chem-ph","dendrite free electrodeposition of lithium metal is necessary for the
+adoption of high energy density rechargeable lithium metal batteries. here, we
+demonstrate a new mechanism of using a liquid crystalline electrolyte to
+suppress dendrite growth with a lithium metal anode. a nematic liquid
+crystalline electrolyte modifies the kinetics of electrodeposition by
+introducing additional overpotential due to its bulk distortion and anchoring
+free energy. by extending the phase-field model, we simulate the morphological
+evolution of the metal anode and explore the role of bulk distortion and
+anchoring strengths on the electrodeposition process. we find that adsorption
+energy of liquid crystalline molecules on lithium surface can be a good
+descriptor for the anchoring energy and obtain it using first-principles
+density functional theory calculations. unlike other extrinsic mechanisms, we
+find that liquid crystals with high anchoring strengths can ensure smooth
+electrodeposition of lithium metal, thus paving the way for practical
+applications in rechargeable batteries based on metal anodes.",http://arxiv.org/pdf/1907.04441v2,Downloaded (4316.40 KB),"lithium, cu, deposition, electrodeposition",50,pdfs/1907.04441v2.pdf
+2407.05799v1,Fabrication of n+ contact on p-type high pure Ge by cathodic electrodeposition of Li and impedance analysis of n+/p diode at low temperatures,2024,"physics.app-ph, cond-mat.mtrl-sci","fabrication of diode by forming n-type electrical contact on germanium (ge)
+and its ac impedance analysis is important for radiation detection in the form
+of pulses. in this work lithium (li) metal has been electro-deposited on p-type
+ge single crystal from molten lithium nitrate at 260{\deg}c. the depth of li
+diffusion in ge was successfully varied by changing the electroplating time as
+determined by sheet resistance (sr) measurement after successive lapping of ge
+surface. li is found to diffuse up to 500 micron inside ge by heat treatment of
+as deposited li/ge at 350{\deg}c for 1 hour. a stable n-type electrical contact
+on ge with sr ~1 ohm/square and impurity concentration ~3.7x10^15/cm^3 is
+developed by li incorporation in p-type ge crystal showing net carrier
+concentration ~3.4x10^10/cm^3 and sr ~100 kohm/square. acceptor concentration
+determined from the 1/c^2 vs v plot shows similar temperature dependence as
+found by hall measurement. the fabricated n+/p junction exhibit ideal diode
+characteristics with gradual increase in cut off voltage at low temperatures.
+under forward bias, junction capacitance mainly comprises of diffusion
+capacitance (~10 micro.f) showing strong frequency dependence and the impedance
+is partly resistive resulting in semicircular cole-cole plot. imaginary
+impedance spectra reveal that the relaxation time for the diffusion of majority
+carriers decreases at higher temperatures and increased forward voltages. the
+diode is purely capacitive under reverse bias showing a line parallel to the
+y-axis in the cole-cole plot with frequency independent (100hz-100mhz)
+depletion capacitance ~10pf.",http://arxiv.org/pdf/2407.05799v1,Downloaded (5030.11 KB),"lithium, cu, deposition, electrodeposition, electroplating",62,pdfs/2407.05799v1.pdf
+1505.05604v2,Dendrite Suppression by Shock Electrodeposition in Charged Porous Media,2015,"physics.chem-ph, cond-mat.mes-hall, cond-mat.mtrl-sci","it is shown that surface conduction can stabilize electrodeposition in
+random, charged porous media at high rates, above the diffusion-limited
+current. after linear sweep voltammetry and impedance spectroscopy, copper
+electrodeposits are visualized by scanning electron microscopy and energy
+dispersive spectroscopy in two different porous separators (cellulose nitrate,
+polyethylene), whose surfaces are modified by layer-by-layer deposition of
+positive or negative charged polyelectrolytes. above the limiting current,
+surface conduction inhibits growth in the positive separators and produces
+irregular dendrites, while it enhances growth and suppresses dendrites behind a
+deionization shock in the negative separators, also leading to improved cycle
+life. the discovery of stable uniform growth in the random media differs from
+the non-uniform growth observed in parallel nanopores and cannot be explained
+by classical quasi-steady leaky membrane models, which always predict
+instability and dendritic growth. instead, the experimental results suggest
+that transient electro-diffusion in random porous media imparts the stability
+of a deionization shock to the growing metal interface behind it. shock
+electrodeposition could be exploited to enhance the cycle life and recharging
+rate of metal batteries or to accelerate the fabrication of metal matrix
+composite coatings.",http://arxiv.org/pdf/1505.05604v2,Downloaded (1720.20 KB),"cu, deposition, electrodeposition, copper",50,pdfs/1505.05604v2.pdf
+1609.00597v1,Influence of Cu deposition potential on the giant magnetoresistance and surface roughness of electrodeposited Ni-Co/Cu multilayers,2016,cond-mat.mtrl-sci,"it has been shown previously for electrodeposited co/cu multilayers that the
+single-bath electrodeposition process can be optimized from an electrochemical
+point of view in order to avoid unwanted co dissolution and incorporation of co
+in the non-magnetic layer during the cu deposition pulse. in the present work,
+electrodeposition of ni-co/cu multilayers has been studied to clarify if the
+same optimization method is appropriate when two magnetic elements are present
+and if this potential results in the largest giant magnetoresistance (gmr) for
+the particular alloy system studied. for this purpose, several ni-co/cu
+multilayers were prepared by varying the deposition potential of the cu layer.
+the composition analysis of the deposits showed that the ni:co ratio exhibits a
+minimum as a function of the cu deposition potential, which can be explained by
+considering both the dissolution of co and the mass transport of the reactants.
+both the saturation gmr value and the intensity of the satellite peaks in the
+x-ray diffractograms were highly correlated with the resulting surface
+roughness of the deposits which was strongly varying with the cu deposition
+potential. higher gmr values, lower saturation fields and more perfect
+multilayer structure were observed for sufficiently positive cu deposition
+potentials only which enabled a partial co dissolution resulting in a reduced
+surface roughness. the results draw attention to the complexity of the
+optimization procedure of the deposition of multilayers with several alloying
+components.",http://arxiv.org/pdf/1609.00597v1,Downloaded (555.61 KB),"cu, deposition, electrodeposition",38,pdfs/1609.00597v1.pdf
+1803.01898v2,Strategic Research Grant Report: Fiber-shaped lithium-ion batteries with metallic electrodes,2018,"physics.app-ph, physics.chem-ph","we have demonstrated a fiber lithium ion battery (lib) fabricated by
+co-twisting a lifepo4 composite-coated copper wire (cathode) together with an
+aluminum wire (anode). an all-solid lipf6 composite layer functioning both as
+the electrolyte and battery separator is deposited onto the two electrode wires
+before twisting. to characterize the electrochemical properties of the battery,
+charge-discharge tests with different c-rates are performed. the fiber lib has
+an open-circuit voltage of ~3.4 v, and the typical specific capacity is found
+to be ~87 mahg-1 at 0.5 c charge-discharge rate. besides, the proposed battery
+has a coulombic efficiency of more than 82% throughout all the charge-discharge
+tests. we also find that bending of the fiber battery has insignificant
+influence on the battery electrochemical properties.",http://arxiv.org/pdf/1803.01898v2,Downloaded (618.27 KB),"battery, lithium, cu, copper",50,pdfs/1803.01898v2.pdf
+2505.03956v1,Observation of Order and Disorder in Solid-Electrolyte Interphases of Lithium-Metal Anodes,2025,"cond-mat.mtrl-sci, physics.atom-ph","battery interfaces critically influence lithium-metal battery performance
+through their role in ion diffusion and dendrite formation. however, structural
+characterization of these interfaces has remained challenging due to
+limitations in high-resolution methods and artifacts from electron irradiation.
+using cryogenic conditions for both specimen preparation and scanning electron
+nanobeam diffraction, we can determine the structural organization at the
+interface between the vitrified electrolyte and adjacent layers. we identified
+two distinct interface types: one showing short-range order adjacent to lithium
+metal, and another displaying a mixed structure of short-range ordering and
+defective lithium fluoride nanoscale crystallites at a copper collector.
+notably, short-range order appeared exclusively in electrolytes demonstrating
+high reversibility. our results establish that solid-electrolyte-interphase
+structure directly influences lithium deposition morphology and battery
+performance. this methodology opens new possibilities for high-resolution
+characterization of interfaces in energy storage materials, advancing our
+understanding of their critical structural properties.",http://arxiv.org/pdf/2505.03956v1,Downloaded (1913.14 KB),"battery, lithium, deposition, copper",50,pdfs/2505.03956v1.pdf
+1709.05073v3,Theory of voltammetry in charged porous media,2017,physics.chem-ph,"we couple the leaky membrane model, which describes the diffusion and
+electromigration of ions in a homogenized porous medium of fixed background
+charge, with butler-volmer reaction kinetics for flat electrodes separated by
+such a medium in a simple mathematical theory of voltammetry. the model is
+illustrated for the prototypical case of copper electro-deposition/dissolution
+in aqueous charged porous media. we first consider the steady state with three
+different experimentally relevant boundary conditions and derive analytical or
+semi-analytical expressions for concentration profiles, electric potential
+profiles, current-voltage relations and overlimiting conductances. next, we
+perform nonlinear least squares fitting on experimental data, consider the
+transient response for linear sweep voltammetry and demonstrate good agreement
+of the model predictions with experimental data. the experimental datasets are
+for copper electrodeposition from copper(ii) sulfate solutions in a variety of
+nanoporous media, such as anodic aluminum oxide, cellulose nitrate and
+polyethylene battery separators, whose internal surfaces are functionalized
+with positively and negatively charged polyelectrolyte polymers.",http://arxiv.org/pdf/1709.05073v3,Downloaded (3104.13 KB),"battery, cu, deposition, electrodeposition, copper",62,pdfs/1709.05073v3.pdf
+1806.09109v1,Copper underpotential deposition on boron nitride nanomesh,2018,"cond-mat.mtrl-sci, physics.app-ph","the boron nitride nanomesh is a corrugated monolayer of hexagonal boron
+nitride (h-bn) on rh(111), which so far has been studied mostly under ultrahigh
+vacuum conditions. here, we investigate how copper underpotential deposition
+(upd) can be used to quantify defects in the boron nitride monolayer and to
+assess the potential window of the nanomesh, which is important to explore its
+functionality under ambient and electrochemical conditions. in dilute sulfuric
+acid, the potential window of h-bn/rh(111) is close to 1 volt, i.e. larger than
+that of the rh substrate, and is limited by molecular hydrogen evolution on the
+negative and by oxidative removal on the positive side. from copper upd on
+pristine h-bn/rh(111) wafer samples, we estimate a collective defect fraction
+on the order of 0.08-0.7% of the geometric area, which may arise from line and
+point defects in the h-bn layer that are created during its chemical vapour
+deposition. overpotential deposition (opd) is demonstrated to have significant
+consequences on the defect area. we hypothesise that this non-innocent cu
+electrodeposition involves intercalation originating at initial defects,
+causing irreversible delamination of the h-bn layer; this effect may be used
+for 2d material nanoengineering. on the relevant timescale, upd itself does not
+alter the defect area on repeated cycling; therefore, metal upd may find use as
+a general tool to determine the collective defect area in hybrids between 2d
+materials and various substrate metals.",http://arxiv.org/pdf/1806.09109v1,Downloaded (613.68 KB),"cu, deposition, electrodeposition, copper",50,pdfs/1806.09109v1.pdf
+1903.09593v1,Design Principles for Self-forming Interfaces Enabling Stable Lithium Metal Anodes,2019,"physics.app-ph, physics.chem-ph","the path toward li-ion batteries with higher energy-densities will likely
+involve use of thin lithium metal (li) anode (<50 $\mu$m in thickness), whose
+cyclability today remains limited by dendrite formation and low coulombic
+efficiency. previous studies have shown that the solid-electrolyte-interface
+(sei) of li metal plays a crucial role in li electrodeposition and stripping.
+however, design rules for optimal seis on lithium metal are not
+well-established. here, using integrated experimental and modeling studies on a
+series of structurally-similar sei-modifying compounds as model systems, we
+reveal the relationship between sei compositions, li deposition morphology and
+coulombic efficiency, and identify two key descriptors (ionicity and
+compactness) for high performance seis through integrated experimental and
+modeling studies. using this understanding, we design a highly ionic and
+compact sei that shows excellent cycling performance in licoo$_2$-li full cells
+at practical current densities. our results provide guidance for the rational
+selection and optimization of sei modifiers to further improve li metal anodes.",http://arxiv.org/pdf/1903.09593v1,Downloaded (3124.66 KB),"lithium, cu, deposition, electrodeposition",50,pdfs/1903.09593v1.pdf
+2309.16006v1,Quantitative Analysis of Sodium Metal Deposition and Interphase in Na Metal Batteries,2023,physics.app-ph,"sodium-ion batteries exhibit significant promise as a viable alternative to
+current lithium-ion technologies owing to their sustainability, low cost per
+energy density, reliability, and safety. despite recent advancements in cathode
+materials for this category of energy storage systems, the primary challenge in
+realizing practical applications of sodium-ion systems is the absence of an
+anode system with high energy density and durability. although na metal is the
+ultimate anode that can facilitate high-energy sodium-ion batteries, its use
+remains limited due to safety concerns and the high-capacity loss associated
+with the high reactivity of na metal. in this study, titration gas
+chromatography is employed to accurately quantify the sodium inventory loss in
+ether- and carbonate-based electrolytes. uniaxial pressure is developed as a
+powerful tool to control the deposition of sodium metal with dense morphology,
+thereby enabling high initial coulombic efficiencies. in ether-based
+electrolytes, the na metal surface exhibits the presence of a uniform solid
+electrolyte interphase layer, primarily characterized by favorable inorganic
+chemical components with close-packed structures. the full cell, utilizing a
+controlled electroplated sodium metal in ether-based electrolyte, provides
+capacity retention of 91.84% after 500 cycles at 2c current rate and delivers
+86 mah/g discharge capacity at 45c current rate, suggesting the potential to
+enable na metal in the next generation of sodium-ion technologies with
+specifications close to practical requirements.",http://arxiv.org/pdf/2309.16006v1,Downloaded (1125.59 KB),"lithium, cu, deposition",38,pdfs/2309.16006v1.pdf
+2005.05375v2,Computational Investigation of Copper Phosphides as Conversion Anodes for Lithium-Ion Batteries,2020,cond-mat.mtrl-sci,"using first principles structure searching with density-functional theory
+(dft) we identify a novel $fm\bar{3}m$ phase of cu$_2$p and two low-lying
+metastable structures, an $i\bar{4}3d$--cu$_3$p phase, and a
+$cm$--cu$_3$p$_{11}$ phase. the computed pair distribution function of the
+novel $cm$--cu$_3$p$_{11}$ phase shows its structural similarity to the
+experimentally identified $cm$--cu$_2$p$_7$ phase. the relative stability of
+all cu--p phases at finite temperatures is determined by calculating the gibbs
+free energy using vibrational effects from phonon modes at 0 k. from this, a
+finite-temperature convex hull is created, on which $fm\bar{3}m$--cu$_2$p is
+dynamically stable and the cu$_{3-x}$p ($x < 1$) defect phase
+$cmc2_1$--cu$_8$p$_3$ remains metastable (within 20 mev/atom of the convex
+hull) across a temperature range from 0 k to 600 k. both cup$_2$ and cu$_3$p
+exhibit theoretical gravimetric capacities higher than contemporary graphite
+anodes for li-ion batteries; the predicted cu$_2$p phase has a theoretical
+gravimetric capacity of 508 mah/g as a li-ion battery electrode, greater than
+both cu$_3$p (363 mah/g) and graphite (372 mah/g). cu$_2$p is also predicted to
+be both non-magnetic and metallic, which should promote efficient electron
+transfer in the anode. cu$_2$p's favorable properties as a metallic,
+high-capacity material suggest its use as a future conversion anode for li-ion
+batteries; with a volume expansion of 99% during complete cycling, cu$_2$p
+anodes could be more durable than other conversion anodes in the cu--p system
+with volume expansions greater than 150%.",http://arxiv.org/pdf/2005.05375v2,Downloaded (6672.15 KB),"battery, lithium, cu, copper",50,pdfs/2005.05375v2.pdf
+0707.0749v1,Kinetics of Electrodeposition of Silver and Copper at Template Synthesis of Nanowires,2007,"cond-mat.mes-hall, cond-mat.mtrl-sci","the results of investigation of kinetics of nanopores filling into membranes
+from aluminum oxide (pore diameter - 200 nm, porosity ~ 50%) at
+electrodeposition of copper and silver are described. it is shown, that at
+identical quantity of electricity passed through solutions, the degree of pores
+filling by metal (average thickness of a deposit) is various for copper and
+silver deposition. calculated (according faraday law) and experimental
+dependences of deposition rates of these metals on quantity of electricity
+passed at direct and pulse currents are presented. galvanodynamic i - v
+dependences have been obtained at various current scanning rates. the smaller
+rate of deposition allows to decrease concentration limitations of electrode
+process and to obtain higher average thickness of metal deposits and higher
+filling degree. the limiting values of quantity of electricity for direct and
+pulse currents were determined. the average thickness of silver and copper
+deposits was obtained. a degree of pores filling, the morphology and chemical
+microanalysis were studied on cross-section of the membrane, using tescan sem
+equipped with an oxford instruments inca enerqy edx-system.",http://arxiv.org/pdf/0707.0749v1,Downloaded (243.46 KB),"cu, deposition, electrodeposition, copper",50,pdfs/0707.0749v1.pdf
+1504.05799v1,Stability and surface diffusion at lithium-electrolyte interphases with connections to dendrite suppression,2015,"cond-mat.mtrl-sci, physics.comp-ph","this work presents an ab initio exploration of fundamental mechanisms with
+direct relevance to dendrite formation at lithium-electrolyte interfaces.
+specifically, we explore surface diffusion barriers and solvated surface
+energies of typical solid-electrolyte interphase layers of lithium metal
+electrodes. our results indicate that surface diffusion is an important
+mechanism for understanding the recently observed dendrite suppression from
+lithium-halide passivating layers, which were motivated by our previous work.
+our results uncover possible mechanisms underlying a new pathway for mitigating
+dendridic electrodeposition of lithium on metal and thereby contribute to the
+ongoing efforts to develop stable lithium metal anodes for rechargeable battery
+systems.",http://arxiv.org/pdf/1504.05799v1,Downloaded (2372.42 KB),"battery, lithium, deposition, electrodeposition",50,pdfs/1504.05799v1.pdf
+1805.07551v1,Electrochemical solid-state amorphization in the immiscible Cu-Li system: Size matters,2018,cond-mat.mtrl-sci,"as a typical immiscible binary system, copper (cu) and lithium (li) show no
+alloying and chemical intermixing under normal circumstances. a notable example
+that takes advantages of the immiscibility between cu and li is the widespread
+utilization of cu foils as the anodic current collector in li-ion batteries.
+here we show that the nanoscale size effect can play a subtle yet critical role
+in mediating the chemical activity of cu and therefore its miscibility with li,
+such that the electrochemical alloying and solid-state amorphization will occur
+in such an immiscible system when decreasing cu nanoparticle sizes into
+ultrasmall range. this unusual observation was accomplished by performing
+in-situ studies of the electrochemical lithiation processes of individual cuo
+nanowires inside a transmission electron microscopy (tem). upon lithiation, cuo
+nanowires are first electrochemically reduced to form discrete ultrasmall cu
+nanocrystals that, unexpectedly, can in turn undergo further electrochemical
+lithiation to form amorphous culix nanoalloys. real-time dynamic observations
+by in-situ tem unveil that there is a critical grain size (ca. 6 nm), below
+which the crystalline cu nanoparticles can be continuously lithiated and
+amorphized. electron energy loss spectra indicate that there is a net charge
+transfer from li to cu in the amorphous culix nanoalloys. another intriguing
+finding is that the amorphous alloying phenomena in cu-li system is reversible,
+as manifested by the in-situ observation of electron-beam-induced delithiation
+of the as-formed amorphous culix nanoalloys.",http://arxiv.org/pdf/1805.07551v1,Downloaded (271.14 KB),"lithium, cu, copper",38,pdfs/1805.07551v1.pdf
+2503.21481v1,Stress-driven whisker formation in lithium metal batteries,2025,physics.chem-ph,"lithium metal batteries are promising for next-generation high-energy-density
+batteries, especially when lithium is directly plated on a current collector.
+however, lithium whiskers can form in the early stages of electroplating. these
+whiskers lead to low coulombic efficiency due to isolated lithium formation
+during stripping. the mechanism of whisker formation is not fully understood,
+and different mechanisms are proposed in the literature. herein, we
+computationally explore a stress-driven extrusion mechanism through cracks in
+the solid-electrolyte-interphase (sei), which explains the experimentally
+observed root growth of lithium whiskers. we model the extrusion as a flow of a
+power-law herschel-bulkley fluid parametrized by the experimental power-law
+creep behavior of lithium, which results in the typical one-dimensional whisker
+shape. consequently, in competition with sei self-healing, sei cracking
+determines the emergence of whiskers, giving a simple rule of thumb to avoid
+whisker formation in liquid electrolytes.",http://arxiv.org/pdf/2503.21481v1,Downloaded (2206.57 KB),"lithium, cu, electroplating",38,pdfs/2503.21481v1.pdf
+2208.12902v1,Three-dimensional experimental-scale phase-field modelling of dendrite formation in rechargeable lithium-metal batteries,2022,physics.app-ph,"we perform phase-field simulations of the electrodeposition process that
+forms dendrites within metal-anode batteries including anisotropic
+representation. we describe the evolution of a phase field, the lithium-ion
+concentration, and an electric potential, during a battery charge cycle,
+solving equations using time-marching algorithms with automatic time-step
+adjustment and implemented on an open-source finite element library. a modified
+lithium crystal surface anisotropy representation for phase-field
+electrodeposition model is proposed and evaluated through different numerical
+tests, exhibiting low sensitivity to the numerical parameters. change of
+dendritic morphological behaviour is captured by a variation of the simulated
+inter-electrode distance. a set of simulations are presented to validate the
+proposed formulation, showing their agreement with experimentally-observed
+lithium dendrite growth rates, and morphologies reported in the literature.",http://arxiv.org/pdf/2208.12902v1,Downloaded (39654.08 KB),"battery, lithium, deposition, electrodeposition",50,pdfs/2208.12902v1.pdf
+1807.04693v1,"Ni-P coatings electroplating - A review, Part I: Pure Ni-P alloy",2018,"physics.app-ph, cond-mat.mtrl-sci","in the electroplating industry ni-p coatings are extensively employed owing
+to their excellent properties which enable substrate protection against
+corrosion and wear. depending on their composition and structure, as-plated
+deposits demonstrate good mechanical, tribological and electrochemical
+features, catalytic activity but also beneficial magnetic characteristics. with
+subsequent thermal treatment hardness of ni-p metal-metalloid system can
+approach or be even higher than that of hard cr coatings. the purpose of this
+paper is to provide a general survey of the research work dealing with the
+electrodeposition of ni-p binary alloy coatings. proposed phosphorus
+incorporation mechanisms, ni-p alloy microstructure before and after thermal
+treatment, its mechanical, tribological, corrosion, catalytic and magnetic
+properties are considered, so are the key process variables influencing
+phosphorus content in the deposits and the roles of the main electrolytic bath
+constituents. findings on the merits of employing pulse plating and fabrication
+of unconventional (layered and functionally graded) structures are succinctly
+explored.",http://arxiv.org/pdf/1807.04693v1,Downloaded (2678.48 KB),"deposition, electrodeposition, electroplating",38,pdfs/1807.04693v1.pdf
+2102.03962v1,Quantitatively Designing Porous Copper Current Collectors for Lithium Metal Anode,2021,cond-mat.mtrl-sci,"lithium metal has been an attractive candidate as a next generation anode
+material. despite its popularity, stability issues of lithium in the liquid
+electrolyte and the formation of lithium whiskers have kept it from practical
+use. three-dimensional (3d) current collectors have been proposed as an
+effective method to mitigate whiskers growth. although extensive research
+efforts have been done, the effects of three key parameters of the 3d current
+collectors, namely the surface area, the tortuosity factor, and the surface
+chemistry, on the performance of lithium metal batteries remain elusive.
+herein, we quantitatively studied the role of these three parameters by
+synthesizing four types of porous copper networks with different sizes of
+well-structured micro-channels. x-ray microscale computed tomography (micro-ct)
+allowed us to assess the surface area, the pore size and the tortuosity factor
+of the porous copper materials. a metallic zn coating was also applied to study
+the influence of surface chemistry on the performance of the 3d current
+collectors. the effects of these parameters on the performance were studied in
+detail through scanning electron microscopy (sem) and titration gas
+chromatography (tgc). stochastic simulations further allowed us to interpret
+the role of the tortuosity factor in lithiation. by understanding these
+effects, the optimal range of the key parameters is found for the porous copper
+anodes and their performance is predicted. using these parameters to inform the
+design of porous copper anodes for li deposition, coulombic efficiencies (ce)
+of up to 99.56% are achieved, thus paving the way for the design of effective
+3d current collector systems.",http://arxiv.org/pdf/2102.03962v1,Downloaded (4383.84 KB),"lithium, cu, deposition, copper",50,pdfs/2102.03962v1.pdf
+2406.14079v1,Nano-Patterned Pt-Based Metallic Glass Electrocatalysts with In-Situ Copper Oxide Foam for Enhanced Hydrogen Evolution,2024,"cond-mat.mtrl-sci, physics.chem-ph","hydrogen is a promising energy carrier for replacing fossil fuels, and
+hydrogen production via hydrogen evolution reaction (her) is an environmentally
+friendly option if electrocatalysts with low overpotentials and long-term
+stability are used. in this work, the electrocatalytic performance of
+$\mathrm{pt_{57.5}cu_{14.7}ni_{5.3}p_{22.5}}$ bulk metallic glass (bmg) with
+flat, micro-patterned, and nano-patterned surfaces for her in 0.5 m h2so4 is
+studied. the nano-patterned pt-bmg demonstrates outstanding long-term stability
+and self-improving behavior with a final overpotential of 150 mv and a tafel
+slope of 42 $\mathrm{mv dec^{-1}}$ after 1000 linear sweep voltammetry (lsv)
+cycles, which is respectively 42% and 37% lower than in the first lsv cycle.
+x-ray photoelectron spectroscopy (xps) and auger electron spectroscopy (aes)
+indicate the formation of a layer of cuo/cu2o foam deposited on top of the
+nano-patterned surface during the stability test of 1000 lsv cycles. a
+three-step process is proposed to explain the formation of cuxo foam via
+dynamic hydrogen bubble templating (dhbt) electrodeposition from cu dissolution
+of the pt-bmg without using copper salt. this work provides a method to create
+cuxo foams that could be used for various applications. moreover,
+nano-patterned bmgs with dhbt deposition offer a feasible strategy to
+synthesize metal or metal-oxide foams.",http://arxiv.org/pdf/2406.14079v1,Downloaded (2395.35 KB),"cu, deposition, electrodeposition, copper",50,pdfs/2406.14079v1.pdf
+1808.02105v1,Lithium Metal Penetration Induced by Electrodeposition through Solid Electrolytes: Example in Single-Crystal Li6La3ZrTaO12 Garnet,2018,cond-mat.mtrl-sci,"solid electrolytes are considered a potentially enabling component in
+rechargeable batteries that use lithium metal as the negative electrode, and
+thereby can safely access higher energy density than available with today's
+lithium ion batteries. to do so, the solid electrolyte must be able to suppress
+morphological instabilities that lead to poor coulombic efficiency and, in the
+worst case, internal short circuits. in this work, lithium electrodeposition
+experiments were performed using single-crystal li6la3zrtao12 garnet as solid
+electrolyte layers to investigate the factors that determine whether lithium
+penetration occurs through brittle inorganic solid electrolytes. in these
+single crystals, grain boundaries are excluded as possible paths for lithium
+metal propagation. however, vickers microindentation was used to introduce
+sharp surface flaws of known size. using operando optical microscopy, it was
+found that lithium metal penetration sometimes initiates at these controlled
+surface defects, and when multiple indents of varying size were present,
+propagates preferentially from the largest defect. however, a second class of
+flaws was found to be equally or more important. at the perimeter of surface
+current collectors, an enhanced electrodeposition current density causes
+lithium metal filled cracks to initiate and grow to penetration, even when the
+large vickers defects are in close proximity. modeling the electric field
+concentration for the experimental configurations, it was shown that a factor
+of 5 enhancement in field can readily occur within 10 micrometers of current
+collector discontinuities, which we interpret as the origin of
+electrochemomechanical stresses leading to failure. such field amplification
+may determine the sites where supercritical surface defects dominate lithium
+metal propagation during electrodeposition, overriding the presence of larger
+defects elsewhere.",http://arxiv.org/pdf/1808.02105v1,Downloaded (1183.31 KB),"lithium, cu, deposition, electrodeposition",50,pdfs/1808.02105v1.pdf
+2205.11723v1,Galvanic Corrosion and Electric Field in Lithium Anode Passivation Films: Effects on Self-Discharge,2022,"cond-mat.mtrl-sci, physics.chem-ph","battery interfaces help govern rate capability, safety/stability, cycle life,
+and self-discharge, but significant gaps remain in our understanding at atomic
+length scales that can be exploited to improve interfacial properties. in
+particular, li partially plated on copper current collectors, relevant to the
+anodeless, lithium metal cell which is a holy grail of high density energy
+battery research, has recently been reported to undergo galvanic corrosion and
+exhibit short shelf lives. we apply large scale density functional theory (dft)
+calculations and x-ray photoelectron spectroscopy to examine the reaction
+between the electrolyte and li|cu junctions coated with thin, uniform
+electrolyte interphase (sei) passivating films at two applied voltages. these
+novel dft galvanic corrosion simulations show that electrolyte degradation
+preferentially occurs on li-plated regions and should lead to thicker sei
+films. our simulations reveal similarities but also fundamental differences
+between traditional metal localized pitting and li-corrosion mechanisms.
+furthermore, using the recently proposed, highly reactive lithium hydride (lih)
+component sei as example, we distinguish between electrochemical and chemical
+degradation pathways which are partially responsible for self-discharge, with
+the chemical pathway found to exhibit slow kinetics. we also predict that
+electric fields should in general exist across natural sei components like lih,
+and across artificial sei films like lii and lialo(2) often applied to improve
+battery cycling. underlying and unifying these predictions is a framework of
+dft voltage/overpotential definitions which we have derived from
+electrochemistry disciplines like structural metal corrosion studies; our
+analysis can only be made using the correct electronic voltage definitions.",http://arxiv.org/pdf/2205.11723v1,Downloaded (807.70 KB),"battery, lithium, cu, copper",50,pdfs/2205.11723v1.pdf
+2207.06491v1,Dynamics of the lithium metal electrodeposition: Effects of a gas bubble,2022,"cond-mat.mtrl-sci, physics.chem-ph","rechargeable lithium metal batteries have been widely investigated recently,
+driven by the global trend for the electrification of transportation.
+understanding the dynamics of lithium metal electrodeposition is crucial to
+design safe and reliable lithium metal anodes. in this study, we developed a
+grand potential-based phase-field model to investigate the effect of a static
+gas bubble, which forms due to the complicated internal side reactions, on the
+dynamics of the dendrite growth during electrodeposition. it is observed that
+with the presence of a gas bubble, the dendrite growth is largely accelerated,
+due to the accumulation of lithium ions on the far side of the bubble away from
+the anode surface, which could serve as an ion ""reservoir"" for the dendrite
+growth, leading to the bending/tilting of the lithium dendrites toward the
+bubble. meanwhile, the effects of the bubble size and distance to the anode are
+further studied, demonstrating that the larger the bubble size and the closer
+to the anode, the longer the lithium dendrites grow. we hope this study could
+serve as an example to exploit the effect of extrinsic factors on the dendrite
+growth dynamics.",http://arxiv.org/pdf/2207.06491v1,Downloaded (1823.48 KB),"lithium, cu, deposition, electrodeposition",50,pdfs/2207.06491v1.pdf
+2008.00112v1,Kinetics of lithium electrodeposition and stripping,2020,"physics.chem-ph, cond-mat.mtrl-sci","electrodeposition and stripping are fundamental electrochemical processes for
+metals and have gained importance in rechargeable li-ion batteries due to
+lithium metal electrodes. the electrode kinetics associated with lithium metal
+electrodeposition and stripping is crucial in determining performance at fast
+discharge and charge which is important for electric vertical take-off and
+landing (evtol) aircraft and electric vehicles (ev). in this work, we show the
+use of marcus-hush-chidsey (mhc) kinetics to accurately predict the tafel curve
+data from the work of boyle et al. we discuss the differences in predictions of
+reorganization energies from the marcus-hush and the mhc models for lithium
+metal electrodes in four solvents. the mhc kinetic model is implemented and
+open-sourced within cantera. using the reaction kinetic model in a pseudo-2d
+battery model with a lithium anode paired with a lifepo$_4$ cathode, we show
+the importance of accounting for the mhc kinetics and compare it to the use of
+butler-volmer (bv) and marcus-hush kinetic models. we find that significant
+deviation in the overpotentials associated with reaction kinetics for the two
+different rate laws for conditions of fast discharge and charge relevant for
+evtol and ev respectively.",http://arxiv.org/pdf/2008.00112v1,Downloaded (1064.35 KB),"battery, lithium, cu, deposition, electrodeposition",62,pdfs/2008.00112v1.pdf
+1308.6455v1,Vacuum nanogap formation in multilayer structures by an adhesion-controlled process,2013,cond-mat.mes-hall,"in this study, we regulate adhesion between thin metal films to produce a
+large-area vacuum nanogap for electron tunneling. multilayer structures
+comprising thin metal films with adjustable adhesion were fabricated. the
+cu/ag/ti/si structures were grown on si substrates and include thin ti and ag
+films and a thick cu layer. the ag and ti films were deposited on the si
+substrate under vacuum, and a thick cu layer was subsequently electroplated
+onto the ag surface. later, the sandwich was separated and a vacuum nanogap was
+opened to produce two ag/cu and ti/si conformal electrodes. the adhesion
+strength between the ti and ag films was precisely adjusted by exposing the
+structures to dry o2 after ti growth but before ag growth. the resulting
+adhesion needed to be sufficiently high to allow electroplating of cu and
+sufficiently low to allow subsequent separation. either heating or cooling was
+used to separate the sandwiches. t he structures separated as a result of the
+different thermal expansion parameters of the si and cu electrodes and the low
+adhesion between the ti and ag layers. after separation, the ag and ti surfaces
+were analyzed optically using a michelson interferometer. adhesion regulation
+and optimization of the electroplating regime allowed fabrication of two
+conformal electrodes with a nanogap smaller than 5 nm and an area larger than 7
+mm2. such electrodes can be used for efficient energy conversion and cooling in
+the mixed thermionic and thermotunneling regime.",http://arxiv.org/pdf/1308.6455v1,Downloaded (709.38 KB),"cu, electroplating",25,pdfs/1308.6455v1.pdf
+1901.05033v2,Linear stability analysis of transient electrodeposition in charged porous media: suppression of dendritic growth by surface conduction,2019,physics.chem-ph,"we study the linear stability of transient electrodeposition in a charged
+random porous medium, whose pore surface charges can be of any sign, flanked by
+a pair of planar metal electrodes. discretization of the linear stability
+problem results in a generalized eigenvalue problem for the dispersion relation
+that is solved numerically, which agrees well with the analytical approximation
+obtained from a boundary layer analysis valid at high wavenumbers. under
+galvanostatic conditions in which an overlimiting current is applied, in the
+classical case of zero surface charges, the electric field at the cathode
+diverges at sand's time due to electrolyte depletion. the same phenomenon
+happens for positive charges but earlier than sand's time. however, negative
+charges allow the system to sustain an overlimiting current via surface
+conduction past sand's time, keeping the electric field bounded. therefore, at
+sand's time, negative charges greatly reduce surface instabilities and suppress
+dendritic growth, while zero and positive charges magnify them. we compare
+theoretical predictions for overall surface stabilization with published
+experimental data for copper electrodeposition in cellulose nitrate membranes
+and demonstrate good agreement between theory and experiment. we also apply the
+stability analysis to how crystal grain size varies with duty cycle during
+pulse electroplating.",http://arxiv.org/pdf/1901.05033v2,Downloaded (4744.65 KB),"cu, deposition, electrodeposition, electroplating, copper",62,pdfs/1901.05033v2.pdf
+2210.16686v1,"Is Cu$_{3-x}$P a semiconductor, a metal, or a semimetal?",2022,cond-mat.mtrl-sci,"despite the recent surge in interest in cu$_{3-x}$p for catalysis, batteries,
+and plasmonics, the electronic nature of cu$_{3-x}$p remains unclear. some
+studies have shown evidence of semiconducting behavior, whereas others have
+argued that cu$_{3-x}$p is a metallic compound. here, we attempt to resolve
+this dilemma on the basis of combinatorial thin-film experiments, electronic
+structure calculations, and semiclassical boltzmann transport theory. we find
+strong evidence that stoichiometric, defect-free cu$_3$p is an intrinsic
+semimetal, i.e., a material with a small overlap between the valence and the
+conduction band. on the other hand, experimentally realizable cu$_{3-x}$p films
+are always p-type semimetals natively doped by copper vacancies regardless of
+$x$. it is not implausible that cu$_{3-x}$p samples with very small
+characteristic sizes (such as small nanoparticles) are semiconductors due to
+quantum confinement effects that result in opening of a band gap. we observe
+high hole mobilities (276 cm$^2$/vs) in cu$_{3-x}$p films at low temperatures,
+pointing to low ionized impurity scattering rates in spite of a high doping
+density. we report an optical effect equivalent to the burstein-moss shift, and
+we assign an infrared absorption peak to bulk interband transitions rather than
+to a surface plasmon resonance. from a materials processing perspective, this
+study demonstrates the suitability of reactive sputter deposition for detailed
+high-throughput studies of emerging metal phosphides.",http://arxiv.org/pdf/2210.16686v1,Downloaded (17980.74 KB),"cu, deposition, copper",38,pdfs/2210.16686v1.pdf
+2103.03921v1,Thermodynamics of Lithium Stripping and Limits for Fast Discharge in Lithium Metal Batteries,2021,"physics.chem-ph, cond-mat.mtrl-sci, physics.comp-ph","lithium metal batteries are seen as a critical piece towards electrifying
+aviation. during charging, plating of lithium metal, a critical failure
+mechanism, has been studied and mitigation strategies have been proposed. for
+electric aircraft, high discharge power requirements necessitate stripping of
+lithium metal in an uniform way and recent studies have identified the
+evolution of surface voids and pits as a potential failure mechanism. in this
+work, using density functional theory calculations and thermodynamic analysis,
+we investigate the discharge process on lithium metal surfaces. in particular,
+we calculate the tendency for vacancy congregation on lithium metal surfaces,
+which constitutes the first step in the formation of voids and pits. we find
+that among the low miller index surfaces, the (111) surface is the least likely
+to exhibit pitting issues. our analysis suggests that faceting control during
+electrodeposition could be a key pathway towards simultaneously enabling both
+fast charge and fast discharge.",http://arxiv.org/pdf/2103.03921v1,Downloaded (844.68 KB),"lithium, cu, deposition, electrodeposition",50,pdfs/2103.03921v1.pdf
+2208.04089v1,The mechanism of Li deposition on the Cu substrates in the anode-free Li metal batteries,2022,cond-mat.mtrl-sci,"due to the rapid growth in the demand for high-energy-density li batteries
+and insufficient global li reserves, the anode-free li metal batteries are
+receiving increasing attention. various strategies, such as surface
+modification and structural design of cu current collectors, have been proposed
+to stabilize the anode-free li metal batteries. unfortunately, the mechanism of
+li deposition on the cu surfaces with the different miller indices is poorly
+understood, especially on the atomic scale. here, a large-scale molecular
+dynamics simulation of li deposition on the cu substrates was performed in the
+anode-free li metal batteries. the results show that the li layers on the cu
+(100), cu (110), and cu (111) surfaces are closer to the structures of li
+(110), li (100), and li (110) surfaces, respectively. the mechanism was studied
+through the surface similarity analysis, potential energy surfaces, and lattice
+features. finally, a proposal to reduce the fraction of the (110) facet in
+commercial cu foils was made to improve the reversibility and stability of li
+plating/stripping in the anode-free li metal batteries.",http://arxiv.org/pdf/2208.04089v1,Downloaded (2119.27 KB),"cu, deposition",25,pdfs/2208.04089v1.pdf
+2302.06462v1,A continuum electro-chemo-mechanical gradient theory coupled with damage: Application to Li-metal filament growth in all-solid-state batteries,2023,"cond-mat.mtrl-sci, physics.chem-ph","we formulate a continuum electro-chemo-mechanical gradient theory which
+couples electrochemical reactions with mechanical deformation and damage in
+solids. the framework models species transport across the host due to
+diffusion/migration and concurrent electrochemical reaction at damaged sites
+within the host, where ionic species are reduced to form a new compound. the
+theory is fully-coupled with electrodeposition impacting mechanical
+deformation, stress generation and damage of the host. conversely,
+electrodeposition kinetics are affected by mechanical stresses via a
+thermodynamically-consistent, physically motivated driving force that
+distinguishes chemical, electrical and mechanical contributions. the theory
+also captures the interplay between growth-induced fracture of the host and
+deposition of a new material inside cracks by tracking damage and extent of
+electrodeposition via separate phase-field variables.
+  while the framework is general in nature, we specialize it to model a
+li-metal-li7la3zr2o12 (llzo) system and demonstrate the ability to capture both
+intergranular and transgranular crack and li-filament growth mechanisms, which
+have been experimentally observed. in addition, we elucidate how mechanical
+confinement in solid-state batteries plays a key role in the resulting
+crack/electrodeposition morphology. in modeling this system, we demonstrate the
+manner in which our framework can elucidate the critical coupling between
+mechanics and electrodeposition kinetics and its role in dictating li-filament
+growth. beyond this, the framework should serve useful in a number of
+engineering problems of relevance in which electrochemical reactions take place
+within a damage zone, depositing new material at these sites.",http://arxiv.org/pdf/2302.06462v1,Downloaded (4056.53 KB),"cu, deposition, electrodeposition",38,pdfs/2302.06462v1.pdf
+1108.0340v1,Increased Cycling Efficiency and Rate Capability of Copper-coated Silicon Anodes in Lithium-ion Batteries,2011,cond-mat.mtrl-sci,"cycling efficiency and rate capability of porous copper-coated, amorphous
+silicon thin-film negative electrodes are compared to equivalent silicon
+thin-film electrodes in lithium-ion batteries. the presence of a copper layer
+coated on the active material plays a beneficial role in increasing the cycling
+efficiency and the rate capability of silicon thin-film electrodes. between 3c
+and c/8 discharge rates, the available cell energy decreased by 8% and 18% for
+40 nm copper-coated silicon and equivalent silicon thin-film electrodes,
+respectively. copper-coated silicon thin-film electrodes also show higher
+cycling efficiency, resulting in lower capacity fade, than equivalent silicon
+thin-film electrodes. we believe that copper appears to act as a glue that
+binds the electrode together and prevents the electronic isolation of silicon
+particles, thereby decreasing capacity loss. rate capability decreases
+significantly at higher copper-coating thicknesses as the silicon
+active-material is not accessed, suggesting that the thickness and porosity of
+the copper coating need to be optimized for enhanced capacity retention and
+rate capability in this system.",http://arxiv.org/pdf/1108.0340v1,Downloaded (754.54 KB),"lithium, copper",25,pdfs/1108.0340v1.pdf
+2304.01557v1,Direct in situ determination of the surface area and structure of deposited metallic lithium within lithium metal batteries using ultra small and small angle neutron scattering,2023,cond-mat.mtrl-sci,"despite being the major cause of battery safety issues and detrimental
+performance, a comprehensive growth mechanism for metallic lithium deposited at
+electrode surfaces in lithium metal batteries remains elusive. while lithium
+surface morphology is often derived indirectly, here, detailed information is
+directly obtained using in situ small and ultra-small angle neutron scattering,
+in bulk and non-destructively. features of 1-10 um and 100-300 nm are
+identified; the latter contribute to most of the surface area and their size
+inversely correlates to applied current density. surface area per unit volume
+increases continuously during charging from 1-4 h at 2 ma/cm2 but more slowly
+during discharge. comparatively higher values are reached after just 1 h at 20
+ma/cm2 which remain constant in subsequent cycles. such quantitative insight
+into the processes of metallic lithium growth within batteries may enable the
+development of safer high performance lithium metal batteries.",http://arxiv.org/pdf/2304.01557v1,Downloaded (2139.96 KB),"battery, lithium, cu",38,pdfs/2304.01557v1.pdf
+0801.0098v1,An SERS study of the galvanostatic sequence employed for the electrochemical deposition of Copper in the fabrication of Interconnects,2007,cond-mat.mtrl-sci,"this paper reports the first study carried out by surface-enhanced raman
+spectroscopy (sers) during the galvanostatic electrodeposition (ecd) of copper
+from an acidic sulphate solution, in the presence of polyethylene glycol (peg),
+bis-(3-sulfopropyl)-disulfide na salt (sps), benzyl-phenyl modified
+polyethyleneimine (bppei) and chloride ions. the analysis of sers spectra
+recorded during electrodeposition allowed to get an insight into the complex
+interfacial behaviour of the organic blend, in terms of co-adsorption and
+reactivity. at open-circuit (oc), the additives co-adsorb on the copper
+cathode. upon increasing the cathodic polarization, progressive sps-scavenging
+action of peg was observed. bppei is adsorbed in the entire process window and
+cathodic reaction products of peg were identified. the joint action of the
+organic additives yields a continuous deposit with crystallites of submicron
+dimensions, as revealed by scanning electron microscopy (sem).",http://arxiv.org/pdf/0801.0098v1,Downloaded (190.96 KB),"cu, deposition, electrodeposition, copper",50,pdfs/0801.0098v1.pdf
+1008.3542v1,The Atomic-scale Growth of Large-Area Monolayer Graphene on Single-Crystal Copper Substrates,2010,cond-mat.mes-hall,"we study the growth and microscopic structure of large-area graphene
+monolayers, grown on copper single crystals by chemical vapor deposition (cvd)
+in ultra-high vacuum (uhv). using atomic-resolution scanning tunneling
+microscopy (stm), we find that graphene grows primarily in registry with the
+underlying copper lattice for both cu(111) and cu(100). the graphene has a
+hexagonal superstructure on cu(111) with a significant electronic component,
+whereas it has a linear superstructure on cu(100). the film quality is limited
+by grain boundaries, and the best growth is obtained on the cu(111) surface.",http://arxiv.org/pdf/1008.3542v1,Downloaded (2269.55 KB),"cu, deposition, copper",38,pdfs/1008.3542v1.pdf
+1610.05631v1,"Preparation, structure and giant magnetoresistance of electrodeposited Fe Co/Cu multilayers",2016,cond-mat.mtrl-sci,"no systematic studies have been carried out on the giant magnetoresistance
+(gmr) of electrodeposited (ed) fe-co/cu multilayers since the elaboration of a
+method for the optimization of the cu layer deposition potential. in this
+paper, we present results on the electrochemical optimization of the cu layer
+deposition potential which was found to depend on the relative iron
+concentration in the bath. an x-ray diffraction study of ed fe5co95(1.5
+nm)/cu(dcu) multilayers with dcu ranging from 0.8 nm to 10 nm revealed an fcc
+structure. for most of the multilayers, a weak superlattice satellite
+reflection could be identified. the room-temperature magnetoresistance was
+studied in detail as a function of the individual layer thicknesses.
+multilayers with cu layer thicknesses above about 1.5 nm were found to exhibit
+a gmr behavior with a maximum gmr of about 5 % and a typical saturation field
+of 1 koe. the gmr magnitude decreased with increasing fe-content in the
+magnetic layer. the spacer layer thickness evolution of the mr data was
+established in detail after separating the ferromagnetic and superparamagnetic
+gmr contributions and no oscillatory gmr was found. a comparison with
+literature data on both physically deposited and ed fe-co/cu multilayers is
+also made.",http://arxiv.org/pdf/1610.05631v1,Downloaded (749.74 KB),"cu, deposition",25,pdfs/1610.05631v1.pdf
+1809.03667v1,Al-Cu-Fe quasicrystals as anode of lithium ion battery,2018,cond-mat.mtrl-sci,"in this paper, al-cu-fe quasicrystal alloy was used as anode material of
+lithium-ion batteries. the first specific discharge capacity of quasicrystal
+was 204mah/g. cyclic voltammetry showed that oxidation peak of al-cu-fe
+quasicrystal was at about 1.4v. the reduction peak was at 0.3v. al-cu-fe
+quasicrystal have higher li-ion diffusion impedance and warburg in the first
+cycle. x-ray diffraction analysis demonstrate that li atom enter into
+quasicrystal structure can not fully leave quasicrytal during first
+charge/discharge cycle which induce the irreversible capacity.",http://arxiv.org/pdf/1809.03667v1,Downloaded (483.83 KB),"battery, lithium, cu",38,pdfs/1809.03667v1.pdf
+1604.04200v1,Stable artificial solid electrolyte interfaces for lithium batteries,2016,cond-mat.mtrl-sci,"a rechargeable lithium metal battery (lmb), which uses metallic lithium at
+the anode, is among the most promising technologies for next generation
+electrochemical energy storage devices due to its high energy density,
+particularly when li is paired with energetic conversion cathodes such as
+sulfur, oxygen/air, and carbon dioxide. practical lmbs in any of these designs
+remain elusive due to multiple stubborn problems, including parasitic reactions
+of li metal with liquid electrolytes, unstable/dendritic electrodeposition at
+the anode during cell recharge, and chemical reaction of dissolved cathode
+conversion products with the li anode. the solid electrolyte interface (sei)
+formed between lithium metal and liquid electrolytes plays a critical role in
+all of these processes. we report on the chemistry and interfacial properties
+of artificial sei films created by in-situ reaction of a strong lewis acid ali3
+additive, li metal, and aprotic liquid electrolytes. we find that these sei
+films impart exceptional interfacial stability to a li metal anode. we further
+show that the improvements come from at least three processes: (i) in-situ
+formation of li-al alloy, (ii) formation of a lii salt layer on li, and (iii)
+creation of a stable polymer thin film on the lithium metal anode.",http://arxiv.org/pdf/1604.04200v1,Downloaded (1044.62 KB),"battery, lithium, cu, deposition, electrodeposition",62,pdfs/1604.04200v1.pdf
+2504.05612v1,High-efficiency broadband active metasurfaces via reversible metal electrodeposition,2025,"physics.optics, cond-mat.mtrl-sci, physics.app-ph","realizing active metasurfaces with substantial tunability is important for
+many applications but remains challenging due to difficulties in dynamically
+tuning light-matter interactions at subwavelength scales. here, we introduce
+reversible metal electrodeposition as a versatile approach for enabling active
+metasurfaces with exceptional tunability across a broad bandwidth. as a proof
+of concept, we demonstrate a dynamic beam-steering device by performing
+reversible copper (cu) electrodeposition on a reflective gradient metasurface
+composed of metal-insulator-metal resonators. by applying different voltages,
+the cu atoms can be uniformly and reversibly electrodeposited and stripped
+around the resonators, effectively controlling the gap-surface plasmon
+resonances and steering the reflected light. this process experimentally
+achieved >90% diffraction efficiencies and >60% reflection efficiencies in both
+specular and anomalous modes, even after thousands of cycles. moreover, these
+high efficiencies can be extended from the visible to the near- and
+mid-infrared regimes, demonstrating the broad versatility of this approach in
+enabling various active optical and thermal devices with different working
+wavelengths and bandwidths.",http://arxiv.org/pdf/2504.05612v1,Downloaded (7592.75 KB),"cu, deposition, electrodeposition, copper",50,pdfs/2504.05612v1.pdf
