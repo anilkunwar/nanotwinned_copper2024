@@ -4,6 +4,7 @@ import os
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import sqlite3
+import numpy as np
 import logging
 
 # Define the directory containing the database (same as script directory)
@@ -27,8 +28,8 @@ This tool analyzes electrodeposition parameters (e.g., current density, nanotwin
 st.sidebar.header("Setup and Dependencies")
 st.sidebar.markdown("""
 **Required Dependencies**:
-- `pandas`, `streamlit`, `matplotlib`, `sqlite3`
-- Install with: `pip install pandas streamlit matplotlib`
+- `pandas`, `streamlit`, `matplotlib`, `sqlite3`, `numpy`
+- Install with: `pip install pandas streamlit matplotlib numpy`
 """)
 
 # Parameter types for filtering and visualization
@@ -113,6 +114,28 @@ def process_params_from_db(db_file):
         logging.error(f"Database processing failed: {str(e)}")
         return None
 
+# Save histogram data to CSV
+def save_histogram_to_csv(param_type, values, unit, bins=10):
+    try:
+        # Compute histogram
+        counts, bin_edges = np.histogram(values, bins=bins)
+        # Create DataFrame with bin ranges and counts
+        histogram_data = pd.DataFrame({
+            'bin_start': bin_edges[:-1],
+            'bin_end': bin_edges[1:],
+            'count': counts
+        })
+        # Add parameter type and unit as metadata
+        histogram_data['parameter_type'] = param_type
+        histogram_data['unit'] = unit if unit else "None"
+        # Save to CSV
+        csv_filename = f"histogram_{param_type.lower()}.csv"
+        histogram_data.to_csv(csv_filename, index=False)
+        return csv_filename
+    except Exception as e:
+        logging.error(f"Failed to save histogram CSV for {param_type}: {str(e)}")
+        return None
+
 # Sidebar for NER inputs
 st.sidebar.header("NER Analysis Parameters")
 st.sidebar.markdown("Configure the analysis to extract parameters from the SQLite database.")
@@ -189,6 +212,18 @@ if analyze_button:
                             ax.set_ylabel("Count")
                             ax.set_title(f"Distribution of {param_type}")
                             st.pyplot(fig)
+                            
+                            # Save histogram data to CSV and provide download button
+                            csv_filename = save_histogram_to_csv(param_type, values, unit)
+                            if csv_filename:
+                                with open(csv_filename, "rb") as f:
+                                    st.download_button(
+                                        label=f"Download {param_type} Histogram CSV",
+                                        data=f,
+                                        file_name=csv_filename,
+                                        mime="text/csv",
+                                        key=f"histogram_download_{param_type.lower()}"
+                                    )
             
             st.write(f"**Summary**: {len(df)} parameters retrieved, including {len(df[df['entity_label'] == 'CURRENT_DENSITY'])} current density, {len(df[df['entity_label'] == 'ELECTROLYTE_CONC'])} electrolyte concentration, {len(df[df['entity_label'] == 'NANOTWIN_SPACING'])} nanotwin spacing, and {len(df[df['entity_label'] == 'ADDITIVE_CONC'])} additive concentration parameters.")
             st.markdown("""
