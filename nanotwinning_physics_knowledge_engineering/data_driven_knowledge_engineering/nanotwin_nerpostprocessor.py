@@ -9,6 +9,7 @@ import logging
 import io
 import tempfile
 import time
+import psutil  # For memory usage monitoring
 
 # Define the directory containing the database (same as script directory)
 DB_DIR = os.path.dirname(__file__)
@@ -31,8 +32,9 @@ This tool analyzes electrodeposition parameters (e.g., current density, nanotwin
 st.sidebar.header("Setup and Dependencies")
 st.sidebar.markdown("""
 **Required Dependencies**:
-- `pandas`, `streamlit`, `matplotlib`, `numpy`, `sqlite3`, `io`, `tempfile`
-- Install with: `pip install pandas streamlit matplotlib numpy`
+- `pandas`, `streamlit`, `matplotlib`, `numpy`, `sqlite3`, `io`, `tempfile`, `psutil`
+- Install with: `pip install pandas streamlit matplotlib numpy psutil`
+- Ensure Streamlit >= 1.39.0: `pip install --upgrade streamlit`
 """)
 
 # Parameter types for filtering and visualization
@@ -40,6 +42,9 @@ param_types = ["CURRENT_DENSITY", "VOLTAGE", "ELECTROLYTE_CONC", "PH", "TEMPERAT
 
 # Color map for parameter histograms
 param_colors = {param: cm.tab10(i / len(param_types)) for i, param in enumerate(param_types)}
+
+# Maximum rows for CSV downloads to prevent crashes
+MAX_ROWS = 1000
 
 # Validate database
 def validate_db(db_file):
@@ -70,6 +75,7 @@ def validate_db(db_file):
         return False, f"Error reading database: {str(e)}"
 
 # Process parameters from database
+@st.cache_data
 def process_params_from_db(db_file):
     # Resolve relative path to absolute path if not already absolute
     if not os.path.isabs(db_file):
@@ -109,6 +115,13 @@ def process_params_from_db(db_file):
             st.warning("No parameters found for papers with relevant content (electrodeposition, nanotwinning, etc.).")
             return None
         
+        # Log dataset size and memory usage
+        memory_usage = psutil.virtual_memory().used / (1024 ** 2)  # MB
+        logging.info(f"Dataset size: {len(df)} rows, Memory usage: {memory_usage:.2f} MB")
+        if len(df) > MAX_ROWS:
+            st.warning(f"Dataset exceeds {MAX_ROWS} rows. Limiting to {MAX_ROWS} rows for downloads to prevent crashes.")
+            df = df.head(MAX_ROWS)
+        
         relevant_papers_count = len(df["paper_id"].unique())
         st.info(f"Found parameters from {relevant_papers_count} relevant papers.")
         return df
@@ -118,8 +131,11 @@ def process_params_from_db(db_file):
         return None
 
 # Save histogram data to CSV (in-memory)
+@st.cache_data
 def save_histogram_to_csv(param_type, values, unit, bins=10):
     try:
+        # Convert values to numpy array if not already
+        values = np.array(values)
         # Compute histogram
         counts, bin_edges = np.histogram(values, bins=bins)
         # Create DataFrame with bin ranges and counts
@@ -138,6 +154,10 @@ def save_histogram_to_csv(param_type, values, unit, bins=10):
     except Exception as e:
         logging.error(f"Failed to save histogram CSV for {param_type}: {str(e)}")
         return None, None
+
+# Initialize session state for download button control
+if 'download_clicked' not in st.session_state:
+    st.session_state.download_clicked = False
 
 # Sidebar for NER inputs
 st.sidebar.header("NER Analysis Parameters")
@@ -213,36 +233,48 @@ if analyze_button:
                 )
                 
                 # Main parameters CSV download (in-memory)
-                try:
-                    csv_buffer = io.StringIO()
-                    df.to_csv(csv_buffer, index=False)
-                    csv_data = csv_buffer.getvalue().encode('utf-8')
-                    st.download_button(
-                        "Download Nanotwin Parameters CSV",
-                        csv_data,
-                        "nanotwin_copper_params.csv",
-                        "text/csv",
-                        key=f"main_csv_download_{time.time()}"
-                    )
-                except Exception as e:
-                    st.error(f"Failed to generate main CSV download: {str(e)}")
-                    logging.error(f"Main CSV download failed: {str(e)}")
+                if not st.session_state.download_clicked:
+                    try:
+                        with st.spinner("Generating main parameters CSV..."):
+                            csv_buffer = io.StringIO()
+                            df.to_csv(csv_buffer, index=False)
+                            csv_data = csv_buffer.getvalue().encode('utf-8')
+                            if st.download_button(
+                                "Download Nanotwin Parameters CSV",
+                                csv_data,
+                                "nanotwin_copper_params.csv",
+                                "text/csv",
+                                key=f"main_csv_download_{time.time()}",
+                                disabled=st.session_state.download_clicked
+                            ):
+                                st.session_state.download_clicked = True
+                                time.sleep(1)  # Prevent rapid clicks
+                                st.session_state.download_clicked = False
+                    except Exception as e:
+                        st.error(f"Failed to generate main CSV download: {str(e)}")
+                        logging.error(f"Main CSV download failed: {str(e)}")
                 
                 # Main parameters JSON download (in-memory)
-                try:
-                    json_buffer = io.StringIO()
-                    df.to_json(json_buffer, orient="records", lines=True)
-                    json_data = json_buffer.getvalue().encode('utf-8')
-                    st.download_button(
-                        "Download Nanotwin Parameters JSON",
-                        json_data,
-                        "nanotwin_copper_params.json",
-                        "application/json",
-                        key=f"main_json_download_{time.time()}"
-                    )
-                except Exception as e:
-                    st.error(f"Failed to generate main JSON download: {str(e)}")
-                    logging.error(f"Main JSON download failed: {str(e)}")
+                if not st.session_state.download_clicked:
+                    try:
+                        with st.spinner("Generating main parameters JSON..."):
+                            json_buffer = io.StringIO()
+                            df.to_json(json_buffer, orient="records", lines=True)
+                            json_data = json_buffer.getvalue().encode('utf-8')
+                            if st.download_button(
+                                "Download Nanotwin Parameters JSON",
+                                json_data,
+                                "nanotwin_copper_params.json",
+                                "application/json",
+                                key=f"main_json_download_{time.time()}",
+                                disabled=st.session_state.download_clicked
+                            ):
+                                st.session_state.download_clicked = True
+                                time.sleep(1)  # Prevent rapid clicks
+                                st.session_state.download_clicked = False
+                    except Exception as e:
+                        st.error(f"Failed to generate main JSON download: {str(e)}")
+                        logging.error(f"Main JSON download failed: {str(e)}")
                 
                 st.subheader("Parameter Distribution Analysis")
                 for param_type in entity_types:
@@ -260,19 +292,25 @@ if analyze_button:
                                 st.pyplot(fig)
                                 
                                 # Histogram CSV download (in-memory)
-                                try:
-                                    csv_data, csv_filename = save_histogram_to_csv(param_type, values, unit)
-                                    if csv_data:
-                                        st.download_button(
-                                            label=f"Download {param_type} Histogram CSV",
-                                            data=csv_data.encode('utf-8'),
-                                            file_name=csv_filename,
-                                            mime="text/csv",
-                                            key=f"histogram_download_{param_type.lower()}_{time.time()}"
-                                        )
-                                except Exception as e:
-                                    st.error(f"Failed to generate histogram CSV for {param_type}: {str(e)}")
-                                    logging.error(f"Histogram CSV download failed for {param_type}: {str(e)}")
+                                if not st.session_state.download_clicked:
+                                    try:
+                                        with st.spinner(f"Generating {param_type} histogram CSV..."):
+                                            csv_data, csv_filename = save_histogram_to_csv(param_type, values, unit)
+                                            if csv_data:
+                                                if st.download_button(
+                                                    label=f"Download {param_type} Histogram CSV",
+                                                    data=csv_data.encode('utf-8'),
+                                                    file_name=csv_filename,
+                                                    mime="text/csv",
+                                                    key=f"histogram_download_{param_type.lower()}_{time.time()}",
+                                                    disabled=st.session_state.download_clicked
+                                                ):
+                                                    st.session_state.download_clicked = True
+                                                    time.sleep(1)  # Prevent rapid clicks
+                                                    st.session_state.download_clicked = False
+                                    except Exception as e:
+                                        st.error(f"Failed to generate histogram CSV for {param_type}: {str(e)}")
+                                        logging.error(f"Histogram CSV download failed for {param_type}: {str(e)}")
                 
                 st.write(f"**Summary**: {len(df)} parameters retrieved, including {len(df[df['entity_label'] == 'CURRENT_DENSITY'])} current density, {len(df[df['entity_label'] == 'ELECTROLYTE_CONC'])} electrolyte concentration, {len(df[df['entity_label'] == 'NANOTWIN_SPACING'])} nanotwin spacing, and {len(df[df['entity_label'] == 'ADDITIVE_CONC'])} additive concentration parameters.")
                 st.markdown("""
