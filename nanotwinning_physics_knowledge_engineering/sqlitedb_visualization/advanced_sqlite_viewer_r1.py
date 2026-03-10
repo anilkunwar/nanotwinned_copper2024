@@ -3,9 +3,14 @@ import sqlite3
 import pandas as pd
 import os
 import glob
-import tempfile  # Added for handling uploaded files
+import tempfile
 from datetime import datetime
 from pathlib import Path
+
+# ------------------------------
+# Get the script's directory for robust path resolution
+# ------------------------------
+SCRIPT_DIR = os.path.dirname(__file__)
 
 # Page Configuration
 st.set_page_config(
@@ -40,24 +45,31 @@ if 'current_table' not in st.session_state:
 
 # ==================== HELPER FUNCTIONS ====================
 
-def find_database_files(search_paths=None):
-    """Search for .db files in specified directories"""
-    if search_paths is None:
-        search_paths = [
-            '.',
-            './databases',
-            './db',
-            './data',
-            '../databases',
-            '../db'
-        ]
-    
+def find_database_files(base_dir=None):
+    """
+    Search for .db files in specified directories relative to base_dir.
+    If base_dir is None, use the script's directory.
+    """
+    if base_dir is None:
+        base_dir = SCRIPT_DIR
+
+    # Search paths relative to base_dir
+    relative_paths = [
+        '.',
+        './databases',
+        './db',
+        './data',
+        '../databases',
+        '../db'
+    ]
+
     db_files = []
-    for path in search_paths:
-        if os.path.exists(path):
+    for rel_path in relative_paths:
+        abs_path = os.path.join(base_dir, rel_path)
+        if os.path.exists(abs_path):
             patterns = ['*.db', '*.sqlite', '*.db3', '*.sqlite3']
             for pattern in patterns:
-                found = glob.glob(os.path.join(path, pattern))
+                found = glob.glob(os.path.join(abs_path, pattern))
                 for file in found:
                     if file not in db_files:
                         db_files.append(file)
@@ -183,7 +195,7 @@ if uploaded_file is not None:
     )
 
 else:
-    # --- Existing: Local File Search Logic ---
+    # --- Existing: Local File Search Logic (now uses absolute paths) ---
     db_files = find_database_files()
 
     if db_files:
@@ -234,14 +246,14 @@ else:
             navigation = None
     else:
         st.sidebar.warning("⚠️ No database files found in search paths")
-        st.sidebar.info("""
-        **Search Paths:**
-        - ./
-        - ./databases
-        - ./db
-        - ./data
-        - ../databases
-        - ../db
+        st.sidebar.info(f"""
+        **Search Paths (relative to script):**
+        - `{SCRIPT_DIR}`
+        - `{os.path.join(SCRIPT_DIR, 'databases')}`
+        - `{os.path.join(SCRIPT_DIR, 'db')}`
+        - `{os.path.join(SCRIPT_DIR, 'data')}`
+        - `{os.path.join(SCRIPT_DIR, '..', 'databases')}`
+        - `{os.path.join(SCRIPT_DIR, '..', 'db')}`
         
         **Tip:** Use the uploader above to load a file directly!
         """)
@@ -519,11 +531,7 @@ else:
     
     ### Getting Started:
     1. **Upload a file** using the uploader in the sidebar, OR
-    2. **Add database files** to one of these directories:
-       - `./databases/`
-       - `./db/`
-       - `./data/`
-       - `./` (root directory)
+    2. **Add database files** to one of the directories listed in the sidebar.
     
     3. **Supported formats:** `.db`, `.sqlite`, `.db3`, `.sqlite3`
     
@@ -545,8 +553,10 @@ if not uploaded_file and not find_database_files():
     st.subheader("🔧 Quick Setup")
     
     if st.button("Create Sample Database"):
-        sample_db_path = "./databases/sample.db"
-        os.makedirs("./databases", exist_ok=True)
+        # Use absolute path based on script directory
+        sample_db_dir = os.path.join(SCRIPT_DIR, "databases")
+        os.makedirs(sample_db_dir, exist_ok=True)
+        sample_db_path = os.path.join(sample_db_dir, "sample.db")
         
         conn_sample = sqlite3.connect(sample_db_path)
         cursor = conn_sample.cursor()
@@ -571,7 +581,7 @@ if not uploaded_file and not find_database_files():
             ('Alice Johnson', 'alice@example.com', 25),
             ('Bob Smith', 'bob@example.com', 30),
             ('Charlie Brown', 'charlie@example.com', 22),
-            ('Diana Prince', 'diana@example.com', 28)
+            ('Dorotha Princess', 'dorotha@example.com', 28)
         ])
         
         cursor.executemany('INSERT INTO orders (user_id, product, amount) VALUES (?, ?, ?)', [
