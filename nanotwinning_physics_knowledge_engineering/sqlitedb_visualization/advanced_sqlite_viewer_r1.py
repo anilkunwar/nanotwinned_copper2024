@@ -3,6 +3,7 @@ import sqlite3
 import pandas as pd
 import os
 import glob
+import tempfile  # Added for handling uploaded files
 from datetime import datetime
 from pathlib import Path
 
@@ -40,11 +41,8 @@ if 'current_table' not in st.session_state:
 # ==================== HELPER FUNCTIONS ====================
 
 def find_database_files(search_paths=None):
-    """
-    Search for .db files in specified directories
-    """
+    """Search for .db files in specified directories"""
     if search_paths is None:
-        # Default search locations
         search_paths = [
             '.',
             './databases',
@@ -57,25 +55,19 @@ def find_database_files(search_paths=None):
     db_files = []
     for path in search_paths:
         if os.path.exists(path):
-            # Find all .db, .sqlite, .db3 files
             patterns = ['*.db', '*.sqlite', '*.db3', '*.sqlite3']
             for pattern in patterns:
                 found = glob.glob(os.path.join(path, pattern))
                 for file in found:
                     if file not in db_files:
                         db_files.append(file)
-    
     return sorted(db_files)
 
 def get_db_info(db_path):
-    """
-    Get basic information about a database file
-    """
+    """Get basic information about a database file"""
     try:
         file_size = os.path.getsize(db_path)
         modified_time = datetime.fromtimestamp(os.path.getmtime(db_path))
-        
-        # Try to connect and get table count
         conn = sqlite3.connect(db_path)
         table_count = len(get_tables(conn))
         conn.close()
@@ -166,77 +158,94 @@ def export_data(df, format_type='csv'):
 st.sidebar.title("🔧 Database Controls")
 st.sidebar.markdown("---")
 
-# Find all database files
-db_files = find_database_files()
+# --- NEW: File Uploader Logic ---
+uploaded_file = st.sidebar.file_uploader("📤 Upload a Database File", type=['db', 'sqlite', 'sqlite3', 'db3'])
 
-if db_files:
-    # Create dropdown with database names
-    db_options = {}
-    for db_path in db_files:
-        db_name = os.path.basename(db_path)
-        db_info = get_db_info(db_path)
-        if db_info['valid']:
-            db_options[f"{db_name} ({db_info['table_count']} tables)"] = db_path
+if uploaded_file is not None:
+    # Save uploaded file to a temporary location so sqlite3 can read it
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".db") as tmp_file:
+        tmp_file.write(uploaded_file.getbuffer())
+        temp_db_path = tmp_file.name
     
-    if db_options:
-        selected_option = st.sidebar.selectbox(
-            "📁 Select Database",
-            options=list(db_options.keys()),
-            index=0 if st.session_state.selected_db is None else list(db_options.keys()).index(
-                next((k for k, v in db_options.items() if v == st.session_state.selected_db), list(db_options.keys())[0])
-            ) if st.session_state.selected_db in db_options.values() else 0
-        )
-        
-        selected_db_path = db_options[selected_option]
-        
-        # Connect if database changed
-        if st.session_state.selected_db != selected_db_path:
-            st.session_state.selected_db = selected_db_path
-            st.session_state.conn = connect_to_db(selected_db_path)
-            st.session_state.current_table = None
-            st.rerun()
-        
-        # Show database info in sidebar
-        db_info = get_db_info(selected_db_path)
-        st.sidebar.markdown(f"""
-        <div class="sidebar-db-info">
-            <strong>📊 Database Info</strong><br>
-            📁 File: {os.path.basename(selected_db_path)}<br>
-            📏 Size: {db_info['size_formatted']}<br>
-            📋 Tables: {db_info['table_count']}<br>
-            🕒 Modified: {db_info['modified'].strftime('%Y-%m-%d %H:%M') if db_info['modified'] else 'N/A'}
-        </div>
-        """, unsafe_allow_html=True)
-        
-        st.sidebar.markdown("---")
-        
-        # Navigation
-        navigation = st.sidebar.radio(
-            "🧭 Navigation",
-            ["📊 Tables", "🔍 Schema", "⌨️ SQL Query", "📈 Statistics"],
-            index=0
-        )
-        
-        st.sidebar.markdown("---")
-        st.sidebar.success("✅ Database Connected")
-        
-    else:
-        st.sidebar.error("❌ No valid database files found")
-        navigation = None
+    # Update session state if the uploaded file is new
+    if st.session_state.selected_db != temp_db_path:
+        st.session_state.selected_db = temp_db_path
+        st.session_state.conn = connect_to_db(temp_db_path)
+        st.session_state.current_table = None
+        st.rerun()
+    
+    # Show info for uploaded file
+    st.sidebar.success(f"✅ Connected to: {uploaded_file.name}")
+    navigation = st.sidebar.radio(
+        "🧭 Navigation",
+        ["📊 Tables", "🔍 Schema", "⌨️ SQL Query", "📈 Statistics"],
+        index=0
+    )
+
 else:
-    st.sidebar.warning("⚠️ No database files found in search paths")
-    st.sidebar.info("""
-    **Search Paths:**
-    - ./
-    - ./databases
-    - ./db
-    - ./data
-    - ../databases
-    - ../db
-    
-    Please add .db files to one of these directories.
-    """)
-    navigation = None
+    # --- Existing: Local File Search Logic ---
+    db_files = find_database_files()
+
+    if db_files:
+        db_options = {}
+        for db_path in db_files:
+            db_name = os.path.basename(db_path)
+            db_info = get_db_info(db_path)
+            if db_info['valid']:
+                db_options[f"{db_name} ({db_info['table_count']} tables)"] = db_path
+        
+        if db_options:
+            selected_option = st.sidebar.selectbox(
+                "📁 Select Database",
+                options=list(db_options.keys()),
+                index=0 if st.session_state.selected_db is None else list(db_options.keys()).index(
+                    next((k for k, v in db_options.items() if v == st.session_state.selected_db), list(db_options.keys())[0])
+                ) if st.session_state.selected_db in db_options.values() else 0
+            )
+            
+            selected_db_path = db_options[selected_option]
+            
+            if st.session_state.selected_db != selected_db_path:
+                st.session_state.selected_db = selected_db_path
+                st.session_state.conn = connect_to_db(selected_db_path)
+                st.session_state.current_table = None
+                st.rerun()
+            
+            db_info = get_db_info(selected_db_path)
+            st.sidebar.markdown(f"""
+            <div class="sidebar-db-info">
+                <strong>📊 Database Info</strong><br>
+                📁 File: {os.path.basename(selected_db_path)}<br>
+                📏 Size: {db_info['size_formatted']}<br>
+                📋 Tables: {db_info['table_count']}<br>
+                🕒 Modified: {db_info['modified'].strftime('%Y-%m-%d %H:%M') if db_info['modified'] else 'N/A'}
+            </div>
+            """, unsafe_allow_html=True)
+            
+            navigation = st.sidebar.radio(
+                "🧭 Navigation",
+                ["📊 Tables", "🔍 Schema", "⌨️ SQL Query", "📈 Statistics"],
+                index=0
+            )
+            st.sidebar.markdown("---")
+            st.sidebar.success("✅ Database Connected")
+        else:
+            st.sidebar.error("❌ No valid database files found")
+            navigation = None
+    else:
+        st.sidebar.warning("⚠️ No database files found in search paths")
+        st.sidebar.info("""
+        **Search Paths:**
+        - ./
+        - ./databases
+        - ./db
+        - ./data
+        - ../databases
+        - ../db
+        
+        **Tip:** Use the uploader above to load a file directly!
+        """)
+        navigation = None
 
 # ==================== MAIN CONTENT ====================
 
@@ -250,7 +259,6 @@ if conn and navigation:
         st.header("📊 Table Browser")
         
         if tables:
-            # Table selection
             col1, col2 = st.columns([3, 1])
             with col1:
                 selected_table = st.selectbox(
@@ -261,7 +269,6 @@ if conn and navigation:
             st.session_state.current_table = selected_table
             
             if selected_table:
-                # Display statistics
                 stats = get_table_stats(conn, selected_table)
                 col1, col2, col3 = st.columns(3)
                 col1.metric("📊 Total Rows", f"{stats['rows']:,}")
@@ -269,17 +276,13 @@ if conn and navigation:
                 col3.metric("🗃️ Table Name", selected_table)
                 
                 st.markdown("---")
-                
-                # Display data with pagination info
                 st.subheader(f"Data from `{selected_table}`")
                 
                 # Load data
                 df = pd.read_sql_query(f"SELECT * FROM {selected_table}", conn)
                 
-                # Show dataframe
                 st.dataframe(df, use_container_width=True, height=400)
                 
-                # Export options
                 st.markdown("---")
                 st.subheader("📥 Export Data")
                 col1, col2, col3 = st.columns(3)
@@ -327,7 +330,6 @@ if conn and navigation:
             selected_table = st.selectbox("Select Table to View Schema", tables)
             
             if selected_table:
-                # Column schema
                 st.subheader(f"📋 Schema for `{selected_table}`")
                 schema = get_table_schema(conn, selected_table)
                 
@@ -337,7 +339,6 @@ if conn and navigation:
                 )
                 st.dataframe(schema_df, use_container_width=True)
                 
-                # Foreign keys
                 st.markdown("---")
                 st.subheader("🔗 Foreign Key Relationships")
                 fks = get_foreign_keys(conn, selected_table)
@@ -351,7 +352,6 @@ if conn and navigation:
                 else:
                     st.info("ℹ️ No foreign keys defined for this table")
                 
-                # Table relationships visualization
                 st.markdown("---")
                 st.subheader("🕸️ Table Relationships")
                 
@@ -378,7 +378,6 @@ if conn and navigation:
     elif navigation == "⌨️ SQL Query":
         st.header("⌨️ SQL Query Editor")
         
-        # Query input
         default_query = "SELECT * FROM " + (tables[0] if tables else "")
         query = st.text_area(
             "Enter SQL Query",
@@ -387,7 +386,6 @@ if conn and navigation:
             help="Write your SQL query here. Supports SELECT, JOIN, GROUP BY, etc."
         )
         
-        # Query controls
         col1, col2, col3 = st.columns([2, 1, 1])
         with col1:
             run_button = st.button("▶️ Run Query", type="primary", use_container_width=True)
@@ -407,14 +405,12 @@ if conn and navigation:
                 st.success(f"✅ Query executed successfully! ({len(df)} rows returned)")
                 st.dataframe(df, use_container_width=True, height=400)
                 
-                # Add to history
                 st.session_state.query_history.append({
                     'query': query,
                     'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                     'rows': len(df)
                 })
                 
-                # Export query results
                 st.markdown("---")
                 st.subheader("📥 Export Query Results")
                 col1, col2 = st.columns(2)
@@ -439,7 +435,6 @@ if conn and navigation:
                         use_container_width=True
                     )
         
-        # Query history
         if show_history and st.session_state.query_history:
             st.markdown("---")
             st.subheader("🕒 Recent Query History")
@@ -453,7 +448,6 @@ if conn and navigation:
         st.header("📈 Database Statistics")
         
         if tables:
-            # Overall statistics
             col1, col2, col3, col4 = st.columns(4)
             
             total_tables = len(tables)
@@ -480,19 +474,16 @@ if conn and navigation:
             
             st.markdown("---")
             
-            # Table statistics table
             st.subheader("📊 Table-by-Table Statistics")
             stats_df = pd.DataFrame(table_stats)
             st.dataframe(stats_df, use_container_width=True)
             
-            # Top tables by row count
             if not stats_df.empty:
                 st.markdown("---")
                 st.subheader("🏆 Top 5 Tables by Row Count")
                 top_tables = stats_df.nlargest(5, 'Rows')
                 st.dataframe(top_tables, use_container_width=True)
             
-            # Database file info
             st.markdown("---")
             st.subheader("📁 Database File Information")
             db_info = get_db_info(st.session_state.selected_db)
@@ -518,7 +509,6 @@ if conn and navigation:
         else:
             st.warning("⚠️ No tables to analyze")
     
-    # Footer
     st.markdown("---")
     st.caption(f"Session started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} | Built with Streamlit & SQLite")
 
@@ -528,15 +518,14 @@ else:
     ## 👋 Welcome to Advanced SQLite Viewer
     
     ### Getting Started:
-    1. **Add database files** to one of these directories:
+    1. **Upload a file** using the uploader in the sidebar, OR
+    2. **Add database files** to one of these directories:
        - `./databases/`
        - `./db/`
        - `./data/`
        - `./` (root directory)
     
-    2. **Supported formats:** `.db`, `.sqlite`, `.db3`, `.sqlite3`
-    
-    3. **Select a database** from the dropdown in the sidebar
+    3. **Supported formats:** `.db`, `.sqlite`, `.db3`, `.sqlite3`
     
     4. **Explore your data** using Tables, Schema, SQL Query, or Statistics views
     
@@ -550,12 +539,12 @@ else:
 
 # ==================== CREATE SAMPLE DATABASE BUTTON ====================
 
-if not db_files:
+# Only show sample DB creation if no file is uploaded and no local files found
+if not uploaded_file and not find_database_files():
     st.markdown("---")
     st.subheader("🔧 Quick Setup")
     
     if st.button("Create Sample Database"):
-        # Create sample database
         sample_db_path = "./databases/sample.db"
         os.makedirs("./databases", exist_ok=True)
         
