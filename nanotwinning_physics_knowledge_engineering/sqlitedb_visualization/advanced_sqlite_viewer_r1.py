@@ -45,34 +45,39 @@ if 'current_table' not in st.session_state:
 
 # ==================== HELPER FUNCTIONS ====================
 
-def find_database_files(base_dir=None):
+def find_database_files():
     """
-    Search for .db files in specified directories relative to base_dir.
-    If base_dir is None, use the script's directory.
+    Search for database files recursively in:
+    - the script's directory
+    - the current working directory
+    Supports .db, .sqlite, .db3, .sqlite3 extensions.
     """
-    if base_dir is None:
-        base_dir = SCRIPT_DIR
-
-    # Search paths relative to base_dir
+    patterns = ['**/*.db', '**/*.sqlite', '**/*.db3', '**/*.sqlite3']
+    db_files = []
+    
+    # Search both the script directory and the current working directory
+    search_dirs = [SCRIPT_DIR, os.getcwd()]
+    # Also add common relative subfolders (non-recursive) for backward compatibility
     relative_paths = [
         '.',
-        './databases',
-        './db',
-        './data',
-        '../databases',
-        '../db'
+        'databases',
+        'db',
+        'data',
     ]
-
-    db_files = []
-    for rel_path in relative_paths:
-        abs_path = os.path.join(base_dir, rel_path)
-        if os.path.exists(abs_path):
-            patterns = ['*.db', '*.sqlite', '*.db3', '*.sqlite3']
+    for rel in relative_paths:
+        search_dirs.append(os.path.join(SCRIPT_DIR, rel))
+    
+    # Remove duplicates and ensure uniqueness
+    search_dirs = list(dict.fromkeys(search_dirs))
+    
+    for start_dir in search_dirs:
+        if os.path.exists(start_dir):
             for pattern in patterns:
-                found = glob.glob(os.path.join(abs_path, pattern))
+                found = glob.glob(os.path.join(start_dir, pattern), recursive=True)
                 for file in found:
                     if file not in db_files:
                         db_files.append(file)
+    
     return sorted(db_files)
 
 def get_db_info(db_path):
@@ -170,7 +175,7 @@ def export_data(df, format_type='csv'):
 st.sidebar.title("🔧 Database Controls")
 st.sidebar.markdown("---")
 
-# --- NEW: File Uploader Logic ---
+# --- File Uploader ---
 uploaded_file = st.sidebar.file_uploader("📤 Upload a Database File", type=['db', 'sqlite', 'sqlite3', 'db3'])
 
 if uploaded_file is not None:
@@ -195,7 +200,7 @@ if uploaded_file is not None:
     )
 
 else:
-    # --- Existing: Local File Search Logic (now uses absolute paths) ---
+    # --- Local File Search Logic (now recursive and more comprehensive) ---
     db_files = find_database_files()
 
     if db_files:
@@ -242,18 +247,17 @@ else:
             st.sidebar.markdown("---")
             st.sidebar.success("✅ Database Connected")
         else:
-            st.sidebar.error("❌ No valid database files found")
+            st.sidebar.error("❌ No valid database files found (files exist but are not valid SQLite databases)")
             navigation = None
     else:
         st.sidebar.warning("⚠️ No database files found in search paths")
         st.sidebar.info(f"""
-        **Search Paths (relative to script):**
-        - `{SCRIPT_DIR}`
+        **Search includes (recursively):**
+        - `{SCRIPT_DIR}` (script folder)
+        - `{os.getcwd()}` (current working directory)
         - `{os.path.join(SCRIPT_DIR, 'databases')}`
         - `{os.path.join(SCRIPT_DIR, 'db')}`
         - `{os.path.join(SCRIPT_DIR, 'data')}`
-        - `{os.path.join(SCRIPT_DIR, '..', 'databases')}`
-        - `{os.path.join(SCRIPT_DIR, '..', 'db')}`
         
         **Tip:** Use the uploader above to load a file directly!
         """)
@@ -531,7 +535,7 @@ else:
     
     ### Getting Started:
     1. **Upload a file** using the uploader in the sidebar, OR
-    2. **Add database files** to one of the directories listed in the sidebar.
+    2. **Place database files** anywhere under the script folder or current working directory – the app will find them recursively.
     
     3. **Supported formats:** `.db`, `.sqlite`, `.db3`, `.sqlite3`
     
@@ -581,7 +585,7 @@ if not uploaded_file and not find_database_files():
             ('Alice Johnson', 'alice@example.com', 25),
             ('Bob Smith', 'bob@example.com', 30),
             ('Charlie Brown', 'charlie@example.com', 22),
-            ('Dorotha Princess', 'dorotha@example.com', 28)
+            ('Diana Prince', 'diana@example.com', 28)
         ])
         
         cursor.executemany('INSERT INTO orders (user_id, product, amount) VALUES (?, ?, ?)', [
